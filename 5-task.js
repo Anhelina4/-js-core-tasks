@@ -1,11 +1,10 @@
-function partial
-
-
-
-
-
-
-
+function partial(fn, ...args){
+    console.log(arguments)
+    console.log(...args)
+    console.log(args.concat(arguments))
+    console.log((...arguments) =>  fn.apply(this, args.concat(arguments)))
+    return (...arguments) =>  fn.apply(this, args.concat(arguments))
+}
 
 function add(a, b) { return a + b; }
 function mult(a, b, c, d) { return a * b * c * d; }
