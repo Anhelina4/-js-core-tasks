@@ -10,28 +10,29 @@ function sequence(start=0, step=1) {
   };
 }
 
-function fmap(a, gen, ){
-  return function (){
-      return a(gen() )
-      }
-      
-}
+function fmap(a, gen ){
+  return  function(...args) { return a(gen(...args) )}
+  }
 
-
-  function add(a, b) { 
-    return a + b; 
+//args - its array
+  function add(...args) { 
+    //console.log(args)
+    let sum = 0;
+    args.map((item)=>(sum+=item))
+    return sum
+    // console.log(sum)
 }
 
 function square(x) { return x * x; }
 
-var gen = sequence(1, 1);
+// var gen = sequence(1, 1);
 
-var squareGen = fmap(square, gen);
+// var squareGen = fmap(square, gen);
 
-console.log(squareGen()); // 1
-console.log(squareGen()); // 4
-console.log(squareGen()); // 9
-console.log(squareGen()); // 16
+// console.log(squareGen()); // 1
+// console.log(squareGen()); // 4
+// console.log(squareGen()); // 9
+// console.log(squareGen()); // 16
 
 // Мы получаем новую функцию, которая вызвает add, и результат пропускает через функцию square
 var squareAdd = fmap(square, add);
