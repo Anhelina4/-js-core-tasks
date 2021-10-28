@@ -16,7 +16,6 @@ function determineType(arg){
             }
         })
         
-    
 return typeof(arg)
     
 }
