@@ -1,6 +1,6 @@
 function partial(fn, ...args){
     console.log(arguments)
-    console.log(...args)
+    console.log("...args:  is"+ [...args])
     console.log(args.concat(arguments))
     console.log((...arguments) =>  fn.apply(this, args.concat(arguments)))
     return (...arguments) =>  fn.apply(this, args.concat(arguments))
