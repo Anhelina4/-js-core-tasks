@@ -14,11 +14,6 @@
         }
         
     }
-    
-    
-    
-    
-    
     console.log("Ничего:", checkType());
     console.log("undefined:", checkType(undefined));
     console.log("boolean:", checkType(true));
