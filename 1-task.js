@@ -1,8 +1,14 @@
+
+
 function sequence(start=0, step=1) {
+    
     let number=start
+    console.log(number+"hi")
   return function() { 
+      
     let returnNumber = number
     number+=step
+    start=number
     return returnNumber;
   };
 }
@@ -13,12 +19,12 @@ console.log( generator() ); // 10
 console.log( generator() ); // 2
 console.log( generator() ); // 3
 
-console.log( generator2() ); 
-console.log( generator2() ); 
-console.log( generator2() ); 
+// console.log( generator2() ); 
+// console.log( generator2() ); 
+// console.log( generator2() ); 
 
-console.log( generator3() ); 
-console.log( generator3() ); 
-console.log( generator3() ); 
+// console.log( generator3() ); 
+// console.log( generator3() ); 
+// console.log( generator3() ); 
 
 
