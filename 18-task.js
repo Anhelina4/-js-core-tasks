@@ -44,5 +44,5 @@ function createTable() {
     });
   });
 }
-
-createTable();
+export default createTable
+// createTable();
