@@ -5,6 +5,7 @@ import Card from "../Card/Card";
 import BreadCrumb from "../BreadCrumb/BreadCrumb";
 import Title from "../Title/Title"
 import Input from "../Input/Input"
+import Rating from "../Rating/Rating"
 const breadArr = [
   {
     label: "breadcrumb",
@@ -21,7 +22,7 @@ const breadArr = [
 ];
 const Content = (event) => {
   return (
-    <>
+    <div>
       <Alert value="This is button" classes="alert-success" />
       <Btn
         getType="btn"
@@ -53,7 +54,10 @@ const Content = (event) => {
        </div>
          <Title tag ="h3" text="this is title" fontsize="30px" fontcol="red"/>
          <Input type="text" placeholder="enter smth"  value={event.target}/>
-    </>
+         <div>
+         <Rating/>
+         </div>
+    </div>
   );
 };  
 
