@@ -55,6 +55,8 @@ const Content = (event) => {
          <Input type="text" placeholder="enter smth"  value={event.target}/>
     </>
   );
-};
+};  
+
+
 
 export default Content;
