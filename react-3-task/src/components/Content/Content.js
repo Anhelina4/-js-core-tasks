@@ -20,6 +20,24 @@ const breadArr = [
     ariaCurrent: "page",
   },
 ];
+const tags=[
+  {
+    title: "Tag 1 ",
+    href:"http://link1.ru",
+    clas:"tag"
+  },
+  {
+    title: "Tag 2 ",
+    href:"http://link2.ru",
+    clas:"tag"
+  },
+  {
+    title: "Tag 1 ",
+    href:"http://link2.ru",
+    clas:"tag"
+  }
+
+]
 const Content = (event) => {
   return (
     <div>
@@ -56,6 +74,12 @@ const Content = (event) => {
          <Input type="text" placeholder="enter smth"  value={event.target}/>
          <div>
          <Rating/>
+         </div>
+         <div className="tags are-large">
+           {tags.map(item=>{
+             return <div className={item.clas}>{item.title}</div>
+           })}
+
          </div>
     </div>
   );
