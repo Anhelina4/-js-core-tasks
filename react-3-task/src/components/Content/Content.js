@@ -3,6 +3,8 @@ import Alert from "../Alert/Alert";
 import Btn from "../Btn/Btn";
 import Card from "../Card/Card";
 import BreadCrumb from "../BreadCrumb/BreadCrumb";
+import Title from "../Title/Title"
+import Input from "../Input/Input"
 const breadArr = [
   {
     label: "breadcrumb",
@@ -17,7 +19,7 @@ const breadArr = [
     ariaCurrent: "page",
   },
 ];
-const Content = () => {
+const Content = (event) => {
   return (
     <>
       <Alert value="This is button" classes="alert-success" />
@@ -49,6 +51,8 @@ const Content = () => {
       {breadArr.map(item=> <BreadCrumb label={item.label} clas={item.class}
        classLink={item.classLink} ariaCurrent={item.ariaCurrent}  />)}
        </div>
+         <Title tag ="h3" text="this is title" fontsize="30px" fontcol="red"/>
+         <Input type="text" placeholder="enter smth"  value={event.target}/>
     </>
   );
 };
