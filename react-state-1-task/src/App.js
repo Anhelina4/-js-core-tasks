@@ -5,6 +5,7 @@ import Container from "./Slider/Container"
 import { SquareContainer } from './SquareContainer';
 import {InputContainer} from "./InputText"
 import {WindowContainer} from "./Window/"
+import { DropContainer } from './Dropdown';
 function App() {
   return (
     <div className="App">
@@ -14,6 +15,7 @@ function App() {
       <SquareContainer/>
       <InputContainer/>
       <WindowContainer/>
+      <DropContainer btnName="Fruit list"/>
     </div>
   );
 }
