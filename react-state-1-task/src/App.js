@@ -4,6 +4,7 @@ import { TextHidden } from './TextHidden';
 import Container from "./Slider/Container"
 import { SquareContainer } from './SquareContainer';
 import {InputContainer} from "./InputText"
+import {WindowContainer} from "./Window/"
 function App() {
   return (
     <div className="App">
@@ -12,6 +13,7 @@ function App() {
       {/* <Container/> */}
       <SquareContainer/>
       <InputContainer/>
+      <WindowContainer/>
     </div>
   );
 }
