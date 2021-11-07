@@ -4,7 +4,7 @@ function WindowContainer(props) {
     
     return (
         <div>
-            <WindowText />
+            <WindowText p1="Hello, subscribers. We will rock ya!" p2="Again? again? again!!!"/>
         </div>
     );
 }
