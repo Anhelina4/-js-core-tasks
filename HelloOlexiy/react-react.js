@@ -1,6 +1,6 @@
 import React from 'react';
 
-function react-react(props) {
+function reactreact(props) {
     return (
         <div>
             
@@ -8,4 +8,4 @@ function react-react(props) {
     );
 }
 
-export default react-react;
+export default ;
