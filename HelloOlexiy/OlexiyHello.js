@@ -1,12 +1,8 @@
 // is it what you wanted, Olexiy?
-import React from 'react';
+import React from "react";
 
 function OlexiyHello(props) {
-    return (
-        <div>
-            
-        </div>
-    );
+  return <div></div>;
 }
 
 export default OlexiyHello;
