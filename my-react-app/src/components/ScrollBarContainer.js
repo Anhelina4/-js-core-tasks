@@ -13,14 +13,15 @@ const ScrollBarContainer = () => {
   const remove = () => {
     if (state > 0) {
       setState(state - 800 / 10)
-    }if(state<40){
-        setState(0)
+    }
+    if (state < 40) {
+      setState(0)
     }
   }
-  const changeValue=(e)=>{
-      console.log(e.target.value)
-      let newValue = 800 * e.target.value / 100
-      setState(newValue)
+  const changeValue = e => {
+    console.log(e.target.value)
+    let newValue = (800 * e.target.value) / 100
+    setState(newValue)
   }
   return (
     <>

@@ -3,7 +3,7 @@ import { ScrollBarContainer } from "./components"
 function App() {
   return (
     <div className="App">
-      <ScrollBarContainer/>
+      <ScrollBarContainer />
     </div>
   )
 }
