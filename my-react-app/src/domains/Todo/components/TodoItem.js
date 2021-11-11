@@ -1,9 +1,9 @@
-import React, {useState} from 'react'
-
+import React from 'react'
+import './style.css';
 const TodoItem = () => {
     return (
         <div>
-            <input placeholder="Enter your task"></input>
+            
         </div>
     )
 }
