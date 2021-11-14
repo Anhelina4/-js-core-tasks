@@ -1,1 +1,1 @@
-export {default as TaskContent } from "./TaskContext"
+export { default as TaskContent } from "./TaskContext"
