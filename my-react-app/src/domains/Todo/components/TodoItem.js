@@ -1,17 +1,42 @@
-import React from "react"
+import React, { useContext, useState } from "react"
+import { v4 as uuidv4 } from "uuid"
+import TaskContext from "../contexts/TaskContext"
+import useInputActions from "../hooks/useInputActions"
 import "./style.css"
-import { uuid } from 'uuidv4';
 
 const TodoItem = props => {
-  const { inputText, onDelete, index, onEdit } = props
-  const itemId = uuid()
+  const { inputText, onDelete, index } = props
+  const { all, edit } = useContext(TaskContext)
+  const itemId = uuidv4()
+  const { setEditItem, handleEditSubmit } = useInputActions()
   return (
     <div className="display-todo">
-      <input type="checkbox" className="item-checkbox"  id={itemId}></input>
-      <label for={itemId}></label>
-      <div className="item-todo">{inputText}</div>
-      <button className="edit-item" onClick={()=>onEdit(inputText)}>&#10000;</button>
-      <button onClick={()=>onDelete(inputText, index)} className="delete-btn">
+      {all ? (
+        <>
+          <input
+            type="checkbox"
+            checked
+            className="item-checkbox"
+            id={itemId}></input>
+        </>
+      ) : (
+        <input type="checkbox" className="item-checkbox" id={itemId}></input>
+      )}
+      <label htmlFor={itemId}></label>
+      {edit && !all ? (
+        <div
+          className="item-todo"
+          contentEditable="true"
+          onKeyDown={handleEditSubmit}>
+          {inputText}
+        </div>
+      ) : (
+        <div className="item-todo">{inputText}</div>
+      )}
+      <button className="edit-item" onClick={() => setEditItem(index)}>
+        &#10000;
+      </button>
+      <button onClick={() => onDelete(inputText, index)} className="delete-btn">
         &times;
       </button>
     </div>
