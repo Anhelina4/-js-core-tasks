@@ -6,7 +6,7 @@ import "./style.css"
 import { TodoInput } from "."
 const TodoList = () => {
   const { state, tasks, value } = useContext(TaskContext)
-  const { setInputText, setInputTasks, setDeleteTask } = useInputActions()
+  const { setInputText, setInputTasks, setDeleteTask, setEditTask } = useInputActions()
   return (
     <>
       {state ? (
@@ -20,6 +20,7 @@ const TodoList = () => {
                       inputText={item}
                       index={index}
                       onDelete={setDeleteTask}
+                      onEdit={setEditTask}
                     />
                   )
                 })}

@@ -16,8 +16,11 @@ const useInputActions = () => {
     const changedArr = tasks.filter((item, id) => id !== index)
     setTasks(changedArr)
   }
+  const setEditTask=(text)=>{
+    console.log("hhj")
+  }
 
-  return { setInputText, setInputTasks, setDeleteTask }
+  return { setInputText, setInputTasks, setDeleteTask, setEditTask }
 }
 
 export default useInputActions

@@ -147,6 +147,9 @@ h1 {
 	background: #03d3d3;
   box-shadow:  0px 1px 1px rgba(0,0,0,.3);
 }
+.item-checkbox:checked~.item-todo {
+  text-decoration: line-through;
+}
 .edit-item{
   color: #636363;
   height: 23px;
