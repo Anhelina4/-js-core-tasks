@@ -1,3 +1,4 @@
+@import 'antd/dist/antd.css'; 
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +11,150 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.todo-sidebar{
+  display: flex;
+  flex-direction:column;
+  width: 350px;
+  height: 100%;
+  border-right: 8px solid rgb(209, 208, 208);
+  background: rgb(211, 210, 210);
+}
+.main-container{
+  height: 100%;
+  width: auto;
+  flex-grow:1;
+  margin: 34px 30px;
+}
+.todo-input{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  width: 296px;
+  border: none;
+  padding: none;
+  margin: 40px 0px 20px 2px;
+  font-size: 16px;
+  padding: 4px;
+  box-sizing: content-box;
+  background:rgb(190, 190, 190);
+}
+.todo-input:focus-visible{
+  outline: none;
+  border-radius: 3px;
+}
+.todo-input:focus{
+  box-shadow:  0 0 0  5px  rgb(79, 143, 238, .84);
+  transition-property: border;
+  transition-duration: 0.1s;
+  transition-timing-function: ease-in ;
+}
+.category-btn{
+  background: rgb(190, 190, 190);
+  border-radius: 6px;
+  display:flex;
+  justify-content: "space-between";
+}
+.display-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.display-spacebetw{
+  display: flex;
+  justify-content: space-between;
+  margin: 6px;
+}
+.category-style{
+  border-radius: 8px;
+  background: rgb(190, 190, 190);
+  width: 145px;
+}
+.category-style2{
+  border-radius: 8px;
+  background: rgb(190, 190, 190);
+  width: 145px;
+}
+.category-style:hover{
+  background: rgb(128, 125, 125, .7);
+}
+.category-style2:hover{
+  background: rgb(204, 93, 93, .7);
+}
+.title-mylists{
+  color: #8d8d8d;
+  display:flex;
+  justify-content: flex-start;
+  margin-left: 18px;
+  margin-bottom: 0px;
+}
+.btn-plus{
+  background: transparent;
+  border: none;
+  color: #4e4d4d;
+  border-radius: 4px;
+  align-items: center;
+  height:26px;
+}
+.btn-plus:hover{
+  background: rgb(180, 180, 180);
+}
+.like-footer{
+  display:flex;
+  align-items:center;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 8px;
+  margin-left: 10px;
+}
+.title-list{
+  font-size: 14px;
+  margin-right: 6px
+}
+.list-icon{
+  height: 18px;
+  width: 18px;
+  color: white;
+  font-size:10px;
+  background:#1b9dc4;
+  border-radius:50%;
+  padding:4px;
+  margin-right: 6px;
+  margin-left: 6px;
+}
+.list-container{
+  display:flex;
+  align-items: center;
+  padding: 8px 0px;
+  margin: 0px 12px;
+}
+.list-container:hover{
+  background: #1493b994;
+  border-radius: 3px;
+}
+.title-h1{
+  font-size: 30px;
+  color: #1492b9;
+  display:flex;
+  justify-content: flex-start;
+  align-items:center;
+  margin-bottom: 26px;
+}
+.label-text{
+  font-size: 16px;
+  color: #636363;
+}
+.div-scrollbar{
+  height:414px;
+  overflow:auto;
+}
+.div-scrollbar::-webkit-scrollbar {
+    width: 7px;
+    background-color: #f9f9fd;
+    border-radius: 3px;
+}
+.div-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #168db1b0;
+  border-radius: 3px;
 }
