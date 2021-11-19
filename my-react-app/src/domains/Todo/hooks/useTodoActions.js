@@ -1,20 +1,33 @@
-import {useContext} from "react"
+import { useContext } from "react"
+import { FormCreateItem } from "../components"
 import TodoContext from "../contexts/TodoContext"
+import { v4 as uuidv4 } from 'uuid';
 
-const useTodoActions = (e) => {
-  const {state, dispatch} = useContext(TodoContext)
-  const {list, setList} = useContext(TodoContext)
-  const addList=()=>{
-    dispatch({type:"add-list", payload:[list, "1", [{}, {}]]})
-    setList('')
+const useTodoActions = e => {
+  const id = uuidv4();
+  const { state, dispatch, list, setList, displayList, setDisplayList, setDisplay, display, chosenItem, setChosenItem } = useContext(TodoContext)
+  const showForm = () => {
+    setDisplay(!display)
+    setDisplayList(false)
   }
-  const handleKeyDown = e => {
+  const addList = () => {
+    
+    dispatch({ type: "add-list", payload: [list, id, [{}, {}]] })
+    setList("")
+    
+  }
+  const handleKeyDownList = e => {
     if (e.key === "Enter") {
-      dispatch({type:"add-list", payload:[list, "1", [{}, {}]]})
-      setList('')
+      dispatch({ type: "add-list", payload: [list, id, [{}, {}]] })
+      setList("")
     }
   }
-  return {addList, setList, list, handleKeyDown}
+  const showList=(e)=>{
+    setChosenItem(e.target.innerHTML)
+    setDisplayList(true)
+    setDisplay(false)
+  }
+  return { addList, setList, list, handleKeyDownList, showList, showForm}
 }
 
 export default useTodoActions
