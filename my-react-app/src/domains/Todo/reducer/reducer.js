@@ -1,6 +1,6 @@
 const reducer = (state, action) => {
   if (action.type === "add-list") {
-    const newState = Object.assign([...state])
+    const newState = [...state]
     console.log(newState)
     newState.push({
       listName: action.payload[0],
@@ -10,11 +10,8 @@ const reducer = (state, action) => {
     return [...newState]
   }
   if(action.type==="add-task"){
-    const newState = Object.assign([...state])
-    newState.push({
-      children: action.payload
-    })
-    return [...newState]
+    const newState = [...state]
+    return [...newState, newState[0].children.push(action.payload)]
     
   }
 }

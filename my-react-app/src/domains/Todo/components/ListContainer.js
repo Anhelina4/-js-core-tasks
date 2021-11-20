@@ -15,7 +15,7 @@ const ListContainer = () => {
           return (
             <ListItem
               listName={item.listName}  
-              childAmount={item.children.length}
+              // childAmount={item.children.length}
               key={id}
               id={item.id}
               children={item.children}

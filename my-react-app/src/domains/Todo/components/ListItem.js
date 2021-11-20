@@ -18,7 +18,7 @@ const ListItem = props => {
         <UnorderedListOutlined className="list-icon" />
         <div className="title-list ">{listName}</div>
       </div>
-      <div className="title-list ">{childAmount}</div>
+      <div className="title-list "></div>
     </div>
   )
 }
