@@ -25,11 +25,11 @@ const ListContainer = () => {
         {display ? <div className="display-center"><input className="list-input" onChange={e => setList(e.target.value)} onKeyDown={handleKeyDownList} value={list}></input></div>:null}
         
       </div>
-      <div className="like-footer">
-        <button className="btn-plus" onClick={showForm}>
+      <div className="like-footer" onClick={showForm}>
+        <button className="btn-plus" >
           <PlusCircleOutlined style={{ height: "18px", width: "18px" }} />
         </button>
-        <div onClick={showForm} style={{ cursor: "default" }}>
+        <div  style={{ cursor: "default" }}>
           New List
         </div>
       </div>

@@ -167,12 +167,11 @@ code {
     justify-content: center;
     align-items: center;
     border-radius: 3px;
-    width: 302px;
+    width: 310px;
     border: none;
-    padding: none;
+    padding: 8px 0px;
     margin: 10px 0px 10px 2px;
     font-size: 14px;
-    padding: 4px;
     box-sizing: content-box;
     background: rgb(190, 190, 190);
 }
