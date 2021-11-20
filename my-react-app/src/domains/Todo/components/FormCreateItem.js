@@ -5,7 +5,7 @@ import useTodoActions from "../hooks/useTodoActions"
 
 const FormCreateItem = (props) => {
   const { addList, setList, handleKeyDownList } = useTodoActions()
-  const { list, listName, state } = useContext(TodoContext)
+  const { list, listName, state, task, setTask } = useContext(TodoContext)
   const {title, label} = props
   return (
     <div>
@@ -18,8 +18,8 @@ const FormCreateItem = (props) => {
             display: "flex",
           }}>
           <Input
-            onChange={e => setList(e.target.value)}
-            value={list}
+            onChange={e => setTask(e.target.value)}
+            value={task}
           />
           <Button type="primary">
             Submit
