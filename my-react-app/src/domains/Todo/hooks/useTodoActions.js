@@ -36,7 +36,10 @@ const useTodoActions = e => {
      }
     })
   }
-  return { setList, list, handleKeyDownList, showForm, showListsTask }
+  const addTask=()=>{
+    dispatch({ type: "add-task", payload: {child:"Hello"}})
+  }
+  return { setList, list, handleKeyDownList, showForm, showListsTask, addTask }
 }
 
 export default useTodoActions

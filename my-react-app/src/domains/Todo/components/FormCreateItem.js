@@ -4,7 +4,7 @@ import { TodoContext } from "../contexts"
 import useTodoActions from "../hooks/useTodoActions"
 
 const FormCreateItem = (props) => {
-  const { addList, setList, handleKeyDownList } = useTodoActions()
+  const { addList, setList, handleKeyDownList, addTask } = useTodoActions()
   const { list, listName, state, task, setTask } = useContext(TodoContext)
   const {title, label} = props
   return (
@@ -21,7 +21,7 @@ const FormCreateItem = (props) => {
             onChange={e => setTask(e.target.value)}
             value={task}
           />
-          <Button type="primary">
+          <Button type="primary" onClick={addTask}>
             Submit
           </Button>
         </div>

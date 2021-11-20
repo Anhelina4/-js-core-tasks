@@ -5,9 +5,17 @@ const reducer = (state, action) => {
     newState.push({
       listName: action.payload[0],
       id: action.payload[1],
-      children: action.payload[2],
+      children: [],
     })
     return [...newState]
+  }
+  if(action.type==="add-task"){
+    const newState = Object.assign([...state])
+    newState.push({
+      children: action.payload
+    })
+    return [...newState]
+    
   }
 }
 
