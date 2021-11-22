@@ -22,7 +22,8 @@ const useTodoActions = (e, props) => {
     setDisplayList(false)
   }
   const handleKeyDownList = e => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && list !=="") {
+      console.log('event obj', e)
       dispatch({ type: "add-list", payload: {list, id} })
       setList("")
     }
