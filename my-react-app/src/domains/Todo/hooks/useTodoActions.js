@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from "uuid"
 
 const useTodoActions = (e, props) => {
   const id = uuidv4()
+  const idTask = uuidv4()
   const {
     state,
     dispatch,
@@ -16,6 +17,7 @@ const useTodoActions = (e, props) => {
     display,
     chosenItem,
     setChosenItem,
+    task, 
   } = useContext(TodoContext)
   const showForm = () => {
     setDisplay(!display)
@@ -23,22 +25,27 @@ const useTodoActions = (e, props) => {
   }
   const handleKeyDownList = e => {
     if (e.key === "Enter" && list !=="") {
-      console.log('event obj', e)
-      dispatch({ type: "add-list", payload: {list, id} })
+      // console.log('event obj', e)
+      dispatch({ type: "add-list", payload: {list, id, arr: []} })
       setList("")
     }
   }
   const showListsTask = id => {
-    // console.log(id)
+    console.log(id)
+    // console.log(state)
     state.lists.filter(item => {
      if(item.id === id){
        setChosenItem(item.listName)
        setDisplayList(true)
+       state.currentList = item
      }
+     
     })
   }
   const addTask=()=>{
-    // dispatch({ type: "add-task", payload: {child:"Hello"}})
+    
+    // if()
+    dispatch({type:"add-task", payload: {task, idTask}})
   }
   return { setList, list, handleKeyDownList, showForm, showListsTask, addTask }
 }

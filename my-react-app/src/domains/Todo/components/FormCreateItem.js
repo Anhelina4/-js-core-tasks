@@ -4,8 +4,8 @@ import { TodoContext } from "../contexts"
 import useTodoActions from "../hooks/useTodoActions"
 
 const FormCreateItem = (props) => {
-  const { addList, setList, handleKeyDownList, addTask } = useTodoActions()
-  const { list, listName, state, task, setTask } = useContext(TodoContext)
+  const { addTask } = useTodoActions()
+  const {  task, setTask } = useContext(TodoContext)
   const {title, label} = props
   return (
     <div>
