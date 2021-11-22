@@ -17,16 +17,22 @@ const useTodoActions = (e, props) => {
     display,
     chosenItem,
     setChosenItem,
-    task, 
+    task,
+    setTask,
+    taskInput,
+    setTaskInput,
   } = useContext(TodoContext)
   const showForm = () => {
     setDisplay(!display)
     setDisplayList(false)
   }
+  const showTaskInput = () => {
+    setTaskInput(!taskInput)
+  }
   const handleKeyDownList = e => {
-    if (e.key === "Enter" && list !=="") {
+    if (e.key === "Enter" && list !== "") {
       // console.log('event obj', e)
-      dispatch({ type: "add-list", payload: {list, id, arr: []} })
+      dispatch({ type: "add-list", payload: { list, id, arr: [] } })
       setList("")
     }
   }
@@ -34,20 +40,19 @@ const useTodoActions = (e, props) => {
     console.log(id)
     // console.log(state)
     state.lists.filter(item => {
-     if(item.id === id){
-       setChosenItem(item.listName)
-       setDisplayList(true)
-       state.currentList = item
-     }
-     
+      if (item.id === id) {
+        setChosenItem(item.listName)
+        setDisplayList(true)
+        state.currentList = item
+      }
     })
   }
-  const addTask=()=>{
-    
+  const addTask = e => {
     // if()
-    dispatch({type:"add-task", payload: {task, idTask}})
+    dispatch({ type: "add-task", payload: { task, idTask } })
+    setTask("")
   }
-  return { setList, list, handleKeyDownList, showForm, showListsTask, addTask }
+  return { setList, list, handleKeyDownList, showForm, showListsTask, addTask, showTaskInput }
 }
 
 export default useTodoActions

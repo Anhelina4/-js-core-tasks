@@ -5,12 +5,16 @@ import useTodoActions from "../hooks/useTodoActions"
 
 const FormCreateItem = (props) => {
   const { addTask } = useTodoActions()
-  const {  task, setTask } = useContext(TodoContext)
+  const {  task, setTask, taskInput } = useContext(TodoContext)
+  const {showTaskInput} = useTodoActions()
   const {title, label} = props
   return (
     <div>
+      <div className="display-spacebetw">
       <h1 className="title-h1">{title}</h1>
-      <Form.Item label={label}>
+      <button className="btn-plus-main title-h1" style={{fontSize: "18px"}} onClick={showTaskInput}>&#10010;</button>
+      </div>
+      {taskInput ?  <Form.Item label={label}>
         <div
           style={{
             width: "400px",
@@ -25,7 +29,7 @@ const FormCreateItem = (props) => {
             Submit
           </Button>
         </div>
-      </Form.Item>
+      </Form.Item> : null}
     </div>
   )
 }
