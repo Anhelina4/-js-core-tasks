@@ -14,6 +14,15 @@ const reducer = (state, action) => {
     console.log(newState)
     return newState
   }
+  if(action.type === "delete-task"){
+    const newState = Object.assign({}, state)
+    const {payload} = action
+    newState.currentList.children = state.currentList.children.filter((item)=>{
+      return item.taskId !==payload.index
+    })
+    console.log(newState)
+    return newState
+  }
 }
 
 export default reducer

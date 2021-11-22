@@ -21,6 +21,7 @@ const useTodoActions = (e, props) => {
     setTask,
     taskInput,
     setTaskInput,
+    editInput, setEditInput
   } = useContext(TodoContext)
   const showForm = () => {
     setDisplay(!display)
@@ -28,6 +29,12 @@ const useTodoActions = (e, props) => {
   }
   const showTaskInput = () => {
     setTaskInput(!taskInput)
+  }
+  const edit = () => {
+    setEditInput(!editInput)
+  }
+  const deleteTask = (item, index) => {
+    dispatch({type: "delete-task", payload:{item, index}})
   }
   const handleKeyDownList = e => {
     if (e.key === "Enter" && list !== "") {
@@ -52,7 +59,7 @@ const useTodoActions = (e, props) => {
     dispatch({ type: "add-task", payload: { task, idTask } })
     setTask("")
   }
-  return { setList, list, handleKeyDownList, showForm, showListsTask, addTask, showTaskInput }
+  return { setList, list, handleKeyDownList, showForm, showListsTask, addTask, showTaskInput, edit, deleteTask }
 }
 
 export default useTodoActions

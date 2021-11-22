@@ -9,6 +9,7 @@ function App() {
   const [display, setDisplay] = useState(false)
   const [displayList, setDisplayList] = useState(false)
   const [taskInput, setTaskInput] = useState(false)
+  const [editInput, setEditInput] = useState(false)
   const [state, dispatch] = useReducer(reducer, {lists:[], currentList:[]})
   
   const [list, setList] = useState("")
@@ -16,7 +17,7 @@ function App() {
   const [chosenItem, setChosenItem] = useState()
   return (
     <TodoContext.Provider
-      value={{ display, setDisplay, state, dispatch, list, setList, displayList, setDisplayList, chosenItem, setChosenItem, task, setTask, taskInput, setTaskInput}}>
+      value={{ display, setDisplay, state, dispatch, list, setList, displayList, setDisplayList, chosenItem, setChosenItem, task, setTask, taskInput, setTaskInput, editInput, setEditInput}}>
       <div className="App">
         <TodoSidebar />
         <MainContainer className="main-container" />
