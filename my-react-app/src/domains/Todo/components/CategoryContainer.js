@@ -7,7 +7,6 @@ import { TodoCategory } from "."
 import { TodoContext } from "../contexts"
 
 const CategoryContainer = () => {
-  const { state } = useContext(TodoContext)
   const icon1 = <CalendarOutlined />
   const icon2 = <CalendarTwoTone />
   const icon3 = <RedEnvelopeTwoTone />
@@ -33,7 +32,7 @@ const CategoryContainer = () => {
           icon={icon3}
           text="All"
           clas="category-style"
-          amount={state.length}
+          // amount={state.length}
         />
         <TodoCategory
           icon={icon4}

@@ -11,14 +11,14 @@ const ListContainer = () => {
     <div>
       <h3 className="title-mylists">My Lists</h3>
       <div className="div-scrollbar">
-      {state.map((item, id) => {
+      {state.lists.map((item, id) => {
           return (
             <ListItem
               listName={item.listName}  
               // childAmount={item.children.length}
               key={id}
               id={item.id}
-              children={item.children}
+              // children={item.children}
             />
           )
         })}

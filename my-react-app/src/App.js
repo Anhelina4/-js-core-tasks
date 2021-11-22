@@ -8,7 +8,7 @@ import { MainContainer } from "./domains/Todo/components"
 function App() {
   const [display, setDisplay] = useState(false)
   const [displayList, setDisplayList] = useState(false)
-  const [state, dispatch] = useReducer(reducer, [])
+  const [state, dispatch] = useReducer(reducer, {lists:[], currentList:[]})
   
   const [list, setList] = useState("")
   const [task, setTask] = useState("")

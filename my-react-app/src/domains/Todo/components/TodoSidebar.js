@@ -7,13 +7,11 @@ import "../../../index.css"
 import { TodoContext } from "../contexts"
 
 const TodoSidebar = () => {
-  const {display} = useContext(TodoContext)
   return (
     <div className="todo-sidebar">
       <TodoInput />
       <CategoryContainer />
       <ListContainer />
-      
     </div>
   )
 }
