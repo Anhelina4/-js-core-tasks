@@ -11,11 +11,10 @@ const ListContainer = () => {
     <div>
       <h3 className="title-mylists">My Lists</h3>
       <div className="div-scrollbar">
-      {
-      Object.values(state.lists).map((item, id) => {
+        {Object.values(state.lists).map((item, id) => {
           return (
             <ListItem
-              listName={item.listName}  
+              listName={item.listName}
               // childAmount={item.children.length}
               key={id}
               id={item.id}
@@ -23,16 +22,21 @@ const ListContainer = () => {
             />
           )
         })}
-        {display ? <div className="display-center"><input className="list-input" onChange={e => setList(e.target.value)} onKeyDown={handleKeyDownList} value={list}></input></div>:null}
-        
+        {display ? (
+          <div className="display-center">
+            <input
+              className="list-input"
+              onChange={e => setList(e.target.value)}
+              onKeyDown={handleKeyDownList}
+              value={list}></input>
+          </div>
+        ) : null}
       </div>
       <div className="like-footer" onClick={showForm}>
-        <button className="btn-plus" >
+        <button className="btn-plus">
           <PlusCircleOutlined style={{ height: "18px", width: "18px" }} />
         </button>
-        <div  style={{ cursor: "default" }}>
-          New List
-        </div>
+        <div style={{ cursor: "default" }}>New List</div>
       </div>
     </div>
   )

@@ -24,7 +24,13 @@ code {
   height: 100%;
   width: auto;
   flex-grow: 1;
-  margin: 34px 34px 34px 34px;
+  margin: 30px 34px 34px 34px;
+}
+.display-start{
+  display: flex;
+  align-items:flex-start;
+  justify-content: flex-start;
+  margin-bottom: 26px;
 }
 .todo-input {
   display: flex;
@@ -105,16 +111,18 @@ code {
   background: rgb(180, 180, 180);
 }
 .btn-plus-main {
+  display:flex;
+  align-items: center;
   background: transparent;
   border: none;
   color: #4e4d4d;
   border-radius: 4px;
   align-items: center;
   height: 26px;
+  
 }
 .btn-plus-main:hover {
-  color: #fff9f9;
-  background: rgb(79, 143, 238, 0.65);
+  color: #1492b9;
 }
 .like-footer {
   display: flex;
@@ -142,7 +150,7 @@ code {
 .list-container {
   display: flex;
   align-items: center;
-  padding: 8px 0px;
+  padding: 8px 4px;
   margin: 0px 16px 0px 16px;
   cursor: default;
 }
@@ -158,6 +166,13 @@ code {
   align-items: center;
   margin-bottom: 26px;
 }
+.title-input {
+  font-size: 30px;
+  color: #1492b9;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
 .label-text {
   font-size: 16px;
   color: #636363;
@@ -166,12 +181,25 @@ code {
   height: 414px;
   overflow: auto;
 }
+.div-scrollbar-main {
+  height: 500px;
+  overflow: auto;
+}
 .div-scrollbar::-webkit-scrollbar {
   width: 7px;
   background-color: #f9f9fd;
   border-radius: 3px;
 }
 .div-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #a7a7a7;
+  border-radius: 3px;
+}
+.div-scrollbar-main::-webkit-scrollbar {
+  width: 7px;
+  background-color: #f9f9fd;
+  border-radius: 3px;
+}
+.div-scrollbar-main::-webkit-scrollbar-thumb {
   background-color: #168db1b0;
   border-radius: 3px;
 }
@@ -212,7 +240,7 @@ code {
   position: relative;
   cursor: pointer;
 }
-.item-checkbox + label:before {
+.item-checkbox + label::before {
   content: "";
   position: absolute;
   top: -10px;
@@ -222,7 +250,7 @@ code {
   background: white;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
-.item-checkbox + label:after {
+.item-checkbox + label::after {
   content: "";
   position: absolute;
   top: -10px;
@@ -232,8 +260,8 @@ code {
   background: white;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
-.item-checkbox:checked + label:after {
-  background: #d3039f;
+.item-checkbox:checked + label::after {
+  background: #14b7e9;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
 }
 .item-checkbox:checked ~ .item-todo {
