@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import TodoContext from "../contexts/TodoContext"
 import { v4 as uuidv4 } from "uuid"
-
+import { useKeyPress } from '@umijs/hooks';
 const useTodoActions = () => {
   const id = uuidv4()
   const idTask = uuidv4()
@@ -57,14 +57,16 @@ const useTodoActions = () => {
       dispatch({ type: "add-task", payload: { task, idTask } })
       setTask("")
     }
+    
   }
-  const handleKeyDownTask = e => {
-    // console.log(e)
-    if (e.key === "Enter" && task !== "") {
-      dispatch({ type: "add-task", payload: { task, idTask } })
-      setTask("")
-    }
-  }
+  // const handleKeyDownTask = e => {
+  //   // console.log(e)
+  //   if (e.key === "Enter" && task !== "") {
+  //     dispatch({ type: "add-task", payload: { task, idTask } })
+  //     setTask("")
+  //   }
+  // }
+  
   return {
     setList,
     list,
@@ -75,7 +77,7 @@ const useTodoActions = () => {
     showTaskInput,
     edit,
     deleteTask,
-    handleKeyDownTask,
+    useKeyPress,
   }
 }
 

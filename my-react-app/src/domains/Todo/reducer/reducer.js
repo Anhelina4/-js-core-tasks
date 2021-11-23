@@ -10,7 +10,7 @@ const reducer = (state, action) => {
   }
   if (action.type === "add-task") {
     console.log('Add task')
-    const newState = {...state}
+    const newState = JSON.parse(JSON.stringify(state))
     const { payload } = action
     newState.currentList.children = [
       ...newState.currentList.children,
