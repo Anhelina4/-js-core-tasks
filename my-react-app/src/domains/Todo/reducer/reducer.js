@@ -9,14 +9,15 @@ const reducer = (state, action) => {
     return newState
   }
   if (action.type === "add-task") {
-    const newState = Object.assign({}, state)
+    console.log('Add task')
+    const newState = {...state}
     const { payload } = action
     newState.currentList.children = [
       ...newState.currentList.children,
       { taskName: payload.task, taskId: payload.idTask },
     ]
     console.log(newState)
-    return newState
+    return {...newState}
   }
   if (action.type === "delete-task") {
     const newState = Object.assign({}, state)

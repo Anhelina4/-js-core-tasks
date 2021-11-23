@@ -37,7 +37,6 @@ const useTodoActions = () => {
   }
   const handleKeyDownList = e => {
     if (e.key === "Enter" && list !== "") {
-      // console.log('event obj', e)
       dispatch({ type: "add-list", payload: { list, id, arr: [] } })
       setList("")
     }
@@ -60,12 +59,12 @@ const useTodoActions = () => {
     }
   }
   const handleKeyDownTask = e => {
+    // console.log(e)
     if (e.key === "Enter" && task !== "") {
       dispatch({ type: "add-task", payload: { task, idTask } })
       setTask("")
     }
   }
-
   return {
     setList,
     list,

@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 import { UnorderedListOutlined } from "@ant-design/icons"
 import useTodoActions from "../hooks/useTodoActions"
 import { TodoContext } from "../contexts"
-
+import PropTypes from 'prop-types'; 
 const ListItem = props => {
   const { listName, children, id } = props
   const { showListsTask } = useTodoActions()
@@ -19,6 +19,10 @@ const ListItem = props => {
       <div className="title-list "></div>
     </div>
   )
+}
+
+ListItem.propTypes={
+  listName: PropTypes.string.isRequired
 }
 
 export default ListItem
