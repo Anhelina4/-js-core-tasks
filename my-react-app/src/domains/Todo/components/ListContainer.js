@@ -1,12 +1,15 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { PlusCircleOutlined } from "@ant-design/icons"
 import { ListItem } from "."
 import useTodoActions from "../hooks/useTodoActions"
 import TodoContext from "../contexts/TodoContext"
 
 const ListContainer = () => {
-  const { showForm, handleKeyDownList } = useTodoActions()
-  const { state, display, setList, list } = useContext(TodoContext)
+  
+  const {state} = useContext(TodoContext)
+  const {  handleKeyDownList } = useTodoActions()
+  const { display, setList, list } = useContext(TodoContext)
+  
   return (
     <div>
       <h3 className="title-mylists">My Lists</h3>
@@ -15,10 +18,10 @@ const ListContainer = () => {
           return (
             <ListItem
               listName={item.listName}
-              // childAmount={item.children.length}
               key={id}
               id={item.id}
               children={item.children}
+              // taskNumber = {taskAmount}
             />
           )
         })}
@@ -31,12 +34,6 @@ const ListContainer = () => {
               value={list}></input>
           </div>
         ) : null}
-      </div>
-      <div className="like-footer" onClick={showForm}>
-        <button className="btn-plus">
-          <PlusCircleOutlined style={{ height: "18px", width: "18px" }} />
-        </button>
-        <div style={{ cursor: "default" }}>New List</div>
       </div>
     </div>
   )

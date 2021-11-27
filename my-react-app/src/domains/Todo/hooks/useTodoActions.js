@@ -22,9 +22,9 @@ const useTodoActions = () => {
     setEditInput,
   } = useContext(TodoContext)
 
-  const showForm = () => {
+  const showForm = (e) => {
     setDisplay(!display)
-    setDisplayList(false)
+    // setDisplayList(false)
   }
   const showTaskInput = () => {
     setTaskInput(!taskInput)
@@ -37,13 +37,11 @@ const useTodoActions = () => {
   }
   const handleKeyDownList = e => {
     if (e.key === "Enter" && list !== "") {
-      dispatch({ type: "add-list", payload: { list, id, arr: [] } })
+      dispatch({ type: "add-list", payload: { list, id, arr:[]} })
       setList("")
     }
   }
   const showListsTask = id => {
-    // console.log(id)
-    // console.log(state)
     state.lists.filter(item => {
       if (item.id === id) {
         setChosenItem(item.listName)
@@ -59,14 +57,6 @@ const useTodoActions = () => {
     }
     
   }
-  // const handleKeyDownTask = e => {
-  //   // console.log(e)
-  //   if (e.key === "Enter" && task !== "") {
-  //     dispatch({ type: "add-task", payload: { task, idTask } })
-  //     setTask("")
-  //   }
-  // }
-  
   return {
     setList,
     list,
@@ -77,7 +67,6 @@ const useTodoActions = () => {
     showTaskInput,
     edit,
     deleteTask,
-    useKeyPress,
   }
 }
 

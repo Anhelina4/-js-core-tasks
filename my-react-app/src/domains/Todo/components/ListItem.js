@@ -1,13 +1,28 @@
-import React, { useContext } from "react"
+import React, {useState, useEffect, useContext} from "react"
 import { UnorderedListOutlined } from "@ant-design/icons"
 import useTodoActions from "../hooks/useTodoActions"
+import PropTypes from "prop-types"
 import { TodoContext } from "../contexts"
-import PropTypes from 'prop-types'; 
 const ListItem = props => {
+  const {state} = useContext(TodoContext)
   const { listName, children, id } = props
   const { showListsTask } = useTodoActions()
+  const {taskNumber} = props
+  // const [taskAmount, setTaskAmount] = useState()
+  // useEffect(() => {
+  //   let sum = 0
+  //   state.lists.map(item => {
+  //     if(item.id === state.currentList.id){
+  //       state.currentList.children.map(elem => {
+  //         ++sum
+  //       })
+  //     }
+  //   })
+  //   setTaskAmount(sum)
+  // }, [state])
   return (
     <div
+      style={{ cursor: "pointer" }}
       className="list-container display-spacebetw"
       children={children}
       id={id}
@@ -16,13 +31,13 @@ const ListItem = props => {
         <UnorderedListOutlined className="list-icon" />
         <div className="title-list ">{listName}</div>
       </div>
-      <div className="title-list "></div>
+      <div className="list-counter">0</div>
     </div>
   )
 }
 
-ListItem.propTypes={
-  listName: PropTypes.string.isRequired
+ListItem.propTypes = {
+  listName: PropTypes.string.isRequired,
 }
 
 export default ListItem
