@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import TodoContext from "../contexts/TodoContext"
 import { v4 as uuidv4 } from "uuid"
-import { useKeyPress } from '@umijs/hooks';
+
 const useTodoActions = () => {
   const id = uuidv4()
   const idTask = uuidv4()
@@ -20,14 +20,17 @@ const useTodoActions = () => {
     setTaskInput,
     editInput,
     setEditInput,
+    color,
+    setColor,
   } = useContext(TodoContext)
 
-  const showForm = (e) => {
+  const showForm = e => {
     setDisplay(!display)
     // setDisplayList(false)
   }
-  const showTaskInput = () => {
+  const showTasks = () => {
     setTaskInput(!taskInput)
+    // setTaskInput(true)
   }
   const edit = () => {
     setEditInput(!editInput)
@@ -37,7 +40,7 @@ const useTodoActions = () => {
   }
   const handleKeyDownList = e => {
     if (e.key === "Enter" && list !== "") {
-      dispatch({ type: "add-list", payload: { list, id, arr:[]} })
+      dispatch({ type: "add-list", payload: { list, id, arr: [] } })
       setList("")
     }
   }
@@ -46,6 +49,7 @@ const useTodoActions = () => {
       if (item.id === id) {
         setChosenItem(item.listName)
         setDisplayList(true)
+        setColor("#287bff")
         state.currentList = item
       }
     })
@@ -55,7 +59,6 @@ const useTodoActions = () => {
       dispatch({ type: "add-task", payload: { task, idTask } })
       setTask("")
     }
-    
   }
   return {
     setList,
@@ -64,7 +67,7 @@ const useTodoActions = () => {
     showForm,
     showListsTask,
     addTask,
-    showTaskInput,
+    showTasks,
     edit,
     deleteTask,
   }

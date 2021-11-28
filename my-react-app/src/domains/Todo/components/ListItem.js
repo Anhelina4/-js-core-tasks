@@ -1,13 +1,11 @@
-import React, {useState, useEffect, useContext} from "react"
+import React, { useState, useEffect, useContext } from "react"
 import { UnorderedListOutlined } from "@ant-design/icons"
 import useTodoActions from "../hooks/useTodoActions"
 import PropTypes from "prop-types"
-import { TodoContext } from "../contexts"
 const ListItem = props => {
-  const {state} = useContext(TodoContext)
   const { listName, children, id } = props
   const { showListsTask } = useTodoActions()
-  const {taskNumber} = props
+  const { taskNumber } = props
   // const [taskAmount, setTaskAmount] = useState()
   // useEffect(() => {
   //   let sum = 0

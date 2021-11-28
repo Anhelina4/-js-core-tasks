@@ -4,15 +4,34 @@ import { FormCreateItem } from "."
 import { TodoContext } from "../contexts"
 import TaskContainer from "./TaskContainer"
 
-const MainContainer = () => {
-  const { displayList, chosenItem } = useContext(TodoContext)
+const MainContainer = props => {
+  const { state } = useContext(TodoContext)
+  let childrenAmount = 0;
+  if(state.currentList.children === undefined || state.currentList.children === null){
+     childrenAmount = 0
+  }else{
+    childrenAmount = state.currentList.children.length
+  }
+  console.log(childrenAmount)
   return (
     <div className="main-container">
-      {displayList ? (
-        <FormCreateItem title={chosenItem} label="Task name: " />
-      ) : null}
-
-      <TaskContainer />
+      <FormCreateItem />
+      {state.currentList.children && childrenAmount !== 0 ? (
+        <TaskContainer />
+      ) : (
+        <div
+          className="div-scrollbar-main"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            color: "#636262",
+            fontSize: "20px",
+            fontFamily: "Consolas",
+          }}>
+          No reminders
+        </div>
+      )}
     </div>
   )
 }

@@ -1,8 +1,7 @@
 import React, { useContext } from "react"
 import useTodoActions from "../hooks/useTodoActions"
 import { TodoContext } from "../contexts"
-import {Button, } from "antd"
-import {SearchOutlined} from "@ant-design/icons"
+
 const TaskItem = props => {
   const { task, taskId } = props
   const { editInput } = useContext(TodoContext)

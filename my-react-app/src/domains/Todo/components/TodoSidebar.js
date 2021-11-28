@@ -15,7 +15,7 @@ const TodoSidebar = () => {
       <ListContainer />
       <button onClick={showForm} className="btn-plus">
         <PlusCircleOutlined
-          style={{ height: "14px", width: "14px", marginRight:"8px" }}
+          style={{ height: "14px", width: "14px", marginRight: "8px" }}
         />
         New List
       </button>

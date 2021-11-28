@@ -4,15 +4,17 @@ import { TodoContext } from "../contexts"
 
 const TaskContainer = () => {
   const { state } = useContext(TodoContext)
-
+  console.log(state.currentList.children.length)
   return (
-    <div style={{ margin: "6px" }} className="div-scrollbar-main">
-      {state.currentList.children
-        ? state.currentList.children.map(item => (
-            <TaskItem task={item.taskName} taskId={item.taskId} />
-          ))
-        : null}
-    </div>
+    <>
+      <div className="div-scrollbar-main">
+        {state.currentList.children
+          ? state.currentList.children.map(item => (
+              <TaskItem task={item.taskName} taskId={item.taskId} />
+            ))
+          : null}
+      </div>
+    </>
   )
 }
 

@@ -1,15 +1,13 @@
-import React, { useContext, useEffect, useState } from "react"
-import { PlusCircleOutlined } from "@ant-design/icons"
+import React, { useContext } from "react"
 import { ListItem } from "."
 import useTodoActions from "../hooks/useTodoActions"
 import TodoContext from "../contexts/TodoContext"
 
 const ListContainer = () => {
-  
-  const {state} = useContext(TodoContext)
-  const {  handleKeyDownList } = useTodoActions()
+  const { state } = useContext(TodoContext)
+  const { handleKeyDownList } = useTodoActions()
   const { display, setList, list } = useContext(TodoContext)
-  
+
   return (
     <div>
       <h3 className="title-mylists">My Lists</h3>

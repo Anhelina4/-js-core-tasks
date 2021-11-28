@@ -12,9 +12,10 @@ function App() {
   const [editInput, setEditInput] = useState(false)
   const [state, dispatch] = useReducer(reducer, { lists: [], currentList: [] })
   const [amount, setAmount] = useState()
+  const [color, setColor] = useState()
   const [list, setList] = useState("")
   const [task, setTask] = useState("")
-  const [chosenItem, setChosenItem] = useState()
+  const [chosenItem, setChosenItem] = useState("New List")
   return (
     <TodoContext.Provider
       value={{
@@ -36,6 +37,8 @@ function App() {
         setEditInput,
         amount,
         setAmount,
+        color,
+        setColor,
       }}>
       <div className="App">
         <TodoSidebar />
