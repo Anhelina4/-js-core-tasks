@@ -139,10 +139,6 @@ div .whole-focus:focus-visible {
   background: rgb(180, 180, 180);
   border-radius: 6px;
 }
-.btn-plus:hover {
-  background: rgb(180, 180, 180);
-  border-radius: 6px;
-}
 .btn-plus2:hover {
   background: rgb(199, 199, 199);
   border-radius: 12px;
@@ -150,10 +146,6 @@ div .whole-focus:focus-visible {
 .btn-plus2:active {
   background: rgb(161, 161, 161);
   border-radius: 12px;
-}
-.btn-plus:active {
-  background: rgb(161, 161, 161);
-  border-radius: 10px;
 }
 .btn-plus-main {
   display: flex;
@@ -216,7 +208,7 @@ div .whole-focus:focus-visible {
 }
 .title-h1 {
   font-size: 32px;
-  color: #287bff;
+  color: #1b9dc4;
   font-weight: 700;
   display: flex;
   justify-content: flex-start;
@@ -279,7 +271,7 @@ div .whole-focus:focus-visible {
   font-size: 12px;
   box-sizing: border-box;
   background: rgb(190, 190, 190);
-  cursor: pointer;
+  cursor: text;
 }
 .list-input:hover {
   background: #1493b994;
@@ -332,12 +324,9 @@ div .whole-focus:focus-visible {
   align-items: center;
 }
 .checkbox-round:checked + label::after {
-  background: #14b7e9;
+  background: #1b9dc4;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
   align-items: center;
-}
-.checkbox-round:checked ~ .item-todo {
-  text-decoration: line-through;
 }
 .item-todo {
   box-sizing: border-box;
@@ -406,7 +395,7 @@ div .whole-focus:focus-visible {
   font-size: 12px;
   box-sizing: border-box;
   background: rgb(190, 190, 190);
-  cursor: pointer;
+  cursor: text;
 }
 .ant-input-affix-wrapper {
   background: rgb(190, 190, 190);
@@ -455,6 +444,8 @@ div .whole-focus:focus-visible {
   color: rgba(0, 0, 0, 0.85);
   margin: 4px 8px;
   margin-left: 28px;
+  justify-self: flex-start;
+  
 
 }
 .checkbox-round {
@@ -471,34 +462,47 @@ div .whole-focus:focus-visible {
   content: "";
   position: absolute;
   top: 4px;
+  left: -380px;
   width: 18px;
   height: 18px;
   border-radius: 50%;
   background: white;
-  border: 2px solid #287bff;
   cursor: pointer;
+  border: 2px solid #1b9dc4;
 }
 .checkbox-round + label:after {
   content: "";
   position: absolute;
   top: 4px;
+  left: -380px;
   width: 18px;
   height: 18px;
   border-radius: 50%;
   background: white;
   cursor: pointer;
+  border: 2px solid #1b9dc4;
 }
 .checkbox-round:checked + label:after {
-  /* background: #d3039f; */
   content: "";
   position: absolute;
   top: 8px;
-  left: 4px;
+  left: -376px;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #287bff;
+  background: #1b9dc4;
   cursor: pointer;
+}
+.btn-close{
+  font-size: 10px;
+  padding:4px;
+  color: rgb(61, 61, 61);
+  z-index: 10;
+}
+.btn-close:hover{
+  background:rgba(128, 128, 128, 0.7);
+  color:white;
+  border-radius: 50%;
 }
 
 

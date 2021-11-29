@@ -18,8 +18,8 @@ const useTodoActions = () => {
     setTask,
     taskInput,
     setTaskInput,
-    editInput,
-    setEditInput,
+    editList, 
+    setEditList,
     color,
     setColor,
   } = useContext(TodoContext)
@@ -29,9 +29,6 @@ const useTodoActions = () => {
   }
   const showTasks = () => {
     setTaskInput(!taskInput)
-  }
-  const edit = () => {
-    setEditInput(!editInput)
   }
   const deleteTask = (item, index) => {
     dispatch({ type: "delete-task", payload: { item, index } })
@@ -47,7 +44,7 @@ const useTodoActions = () => {
       if (item.id === id) {
         setChosenItem(item.listName)
         setDisplayList(true)
-        setColor("#287bff")
+        setColor("#1b9dc4")
         state.currentList = item;
       }
     })
@@ -57,6 +54,21 @@ const useTodoActions = () => {
       dispatch({ type: "add-task", payload: { task, idTask } })
       setTask("")
     }
+
+  }
+  const deleteList=(index)=>{
+      dispatch({type:"delete-list", payload:{index:index}})
+  }
+  const editListItem=(id)=>{
+    console.log(id)
+    state.lists.map(item=>{
+     if(item.id === id){
+       setEditList(!editList)
+     }
+     if(item.id !== id){
+      setEditList(false)
+     }
+    })
   }
   return {
     setList,
@@ -66,8 +78,9 @@ const useTodoActions = () => {
     showListsTask,
     addTask,
     showTasks,
-    edit,
+    editListItem,
     deleteTask,
+    deleteList,
   }
 }
 

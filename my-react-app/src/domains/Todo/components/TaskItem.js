@@ -2,6 +2,7 @@ import React, { useContext } from "react"
 import useTodoActions from "../hooks/useTodoActions"
 import { TodoContext } from "../contexts"
 import { Radio } from "antd"
+import { CloseOutlined } from "@ant-design/icons"
 
 const TaskItem = props => {
   const { task, taskId } = props
@@ -34,8 +35,8 @@ const TaskItem = props => {
     //     &times;
     //   </button>
     // </div>
-    <div style={{ display: "flex" }}>
-      <div>
+    <>
+      <div style={{position:"relative"}}>
         <input
           className="checkbox-round"
           type="checkbox"
@@ -44,10 +45,23 @@ const TaskItem = props => {
         />
         <label htmlFor={taskId}></label>
       </div>
-      <div id="taskId" className="task">
-        {task}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          borderBottom: "1px solid rgb(199, 199, 199)",
+          marginBottom:"8px"
+        }}>
+        <div id="taskId" className="task">
+          {task}
+        </div>
+        <CloseOutlined
+          className="btn-close"
+          onClick={() => deleteTask(taskId)}
+        />
       </div>
-    </div>
+    </>
   )
 }
 

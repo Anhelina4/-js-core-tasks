@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 import { Checkbox, Input, Tooltip } from "antd"
+import {BsFillPlusCircleFill} from "react-icons/bs";
 import { InfoCircleOutlined } from "@ant-design/icons"
 import { TodoContext } from "../contexts"
 import { useTodoActions } from "../hooks"
@@ -13,9 +14,9 @@ const FormCreateTask = () => {
         alignItems: "center",
         justifyContent: "center",
       }}>
-        
+        <BsFillPlusCircleFill style={{marginLeft:"2px" , fill:"grey"}}/>
       <Input
-        style={{ background: "white", marginLeft:"8px" }}
+        style={{ background: "white", marginLeft:"4px" }}
         placeholder="Enter your task"
         suffix={
           <Tooltip title="Extra information">

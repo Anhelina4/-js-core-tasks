@@ -28,7 +28,7 @@ const CategoryContainer = () => {
       <div className="display-spacebetw" style={{ marginBottom: "12px" }}>
         <TodoCategory
           icon={icon1}
-          iconColor="#287bff"
+          iconColor="#1b9dc4"
           text="Today"
           clas="category-style"
           amount="0"

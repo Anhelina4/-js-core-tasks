@@ -5,21 +5,21 @@ import TodoContext from "../contexts/TodoContext"
 
 const ListContainer = () => {
   const { state } = useContext(TodoContext)
-  const { handleKeyDownList } = useTodoActions()
+  const { handleKeyDownList, editListItem } = useTodoActions()
   const { display, setList, list } = useContext(TodoContext)
 
   return (
     <div>
       <h3 className="title-mylists">My Lists</h3>
       <div className="div-scrollbar">
-        {Object.values(state.lists).map((item, id) => {
+        {state.lists.map((item, id) => {
           return (
             <ListItem
               listName={item.listName}
               key={id}
               id={item.id}
               children={item.children}
-              // taskNumber = {taskAmount}
+              change = {()=>editListItem(item.id)}
             />
           )
         })}

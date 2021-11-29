@@ -54,6 +54,17 @@ const reducer = (state, action) => {
     console.log(newState.currentList)
     return newState
   }
+  if(action.type === "delete-list"){
+    const newState = { ...state }
+    const { payload } = action
+    newState.lists = state.lists.filter(item => {
+      return item.id !== payload.index
+    })
+    console.log(newState)
+    
+    return newState
+  }
+  
 }
 
 export default reducer
