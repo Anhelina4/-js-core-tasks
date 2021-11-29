@@ -244,6 +244,9 @@ div .whole-focus:focus-visible {
   overflow: auto;
 }
 .div-scrollbar-main {
+  display:flex;
+  flex-direction:column;
+  justify-content: flex-start;
   height: 500px;
   overflow: auto;
 }
@@ -436,3 +439,46 @@ div .whole-focus:focus-visible {
   transition-duration: 0.1s;
   transition-timing-function: ease-in;
 }
+.ant-input[id="white-input"] {
+  background: white;
+}
+.ant-input-affix-wrapper {
+  border: none;
+}
+.ant-input-affix-wrapper[placeholder="Search"]:focus,
+.ant-input-affix-wrapper-focused {
+  box-shadow: 0px 0px 0px 0px white;
+}
+.checkbox-round {
+  position: relative;
+  width: 1.3em;
+  height: 1.3em;
+  background-color: white;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+  
+}
+/* .checkbox-round:checked {
+  background-color: #287bff;
+} */
+.checkbox-round:checked + label{
+  background-color: #287bff;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top:0;
+  left: 0;
+}
+.task{
+  font-size: 12px; 
+  color: rgba(0, 0, 0, 0.85);
+  margin: 4px 8px;
+}
+
+

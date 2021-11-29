@@ -48,12 +48,12 @@ const useTodoActions = () => {
         setChosenItem(item.listName)
         setDisplayList(true)
         setColor("#287bff")
-        state.currentList = item
+        state.currentList = item;
       }
     })
   }
-  const addTask = () => {
-    if (task !== "") {
+  const addTask = (e) => {
+    if (task !== "" && e.key==="Enter") {
       dispatch({ type: "add-task", payload: { task, idTask } })
       setTask("")
     }

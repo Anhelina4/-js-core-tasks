@@ -3,13 +3,17 @@ import { useContext } from "react"
 import { FormCreateItem } from "."
 import { TodoContext } from "../contexts"
 import TaskContainer from "./TaskContainer"
+import { FormCreateTask } from "."
 
-const MainContainer = props => {
+const MainContainer = () => {
   const { state } = useContext(TodoContext)
-  let childrenAmount = 0;
-  if(state.currentList.children === undefined || state.currentList.children === null){
-     childrenAmount = 0
-  }else{
+  let childrenAmount = 0
+  if (
+    state.currentList.children === undefined ||
+    state.currentList.children === null
+  ) {
+    childrenAmount = 0
+  } else {
     childrenAmount = state.currentList.children.length
   }
   console.log(childrenAmount)
@@ -17,7 +21,9 @@ const MainContainer = props => {
     <div className="main-container">
       <FormCreateItem />
       {state.currentList.children && childrenAmount !== 0 ? (
-        <TaskContainer />
+        <div className="div-scrollbar-main">
+          <TaskContainer />
+        </div>
       ) : (
         <div
           className="div-scrollbar-main"

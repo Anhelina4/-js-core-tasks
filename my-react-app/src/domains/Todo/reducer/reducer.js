@@ -10,13 +10,22 @@ const reducer = (state, action) => {
   }
   if (action.type === "add-task") {
     console.log("Add task")
-    const newState = { ...state }
+    const newState = JSON.parse(JSON.stringify(state))
     const { payload } = action
     newState.currentList.children = [
       ...newState.currentList.children,
       { taskName: payload.task, taskId: payload.idTask },
     ]
-    console.log(newState)
+    state.lists
+      .map(item => {
+        return item.id === newState.currentList.id
+          ? (item.children = [
+              ...item.children,
+              { taskName: payload.task, taskId: payload.idTask },
+            ])
+          : null
+      })
+      console.log(newState)
     return { ...newState }
   }
   if (action.type === "delete-task") {

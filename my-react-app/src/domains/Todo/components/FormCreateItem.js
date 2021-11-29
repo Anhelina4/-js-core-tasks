@@ -2,10 +2,11 @@ import React, { useContext } from "react"
 import { TodoContext } from "../contexts"
 import useTodoActions from "../hooks/useTodoActions"
 import { PlusOutlined } from "@ant-design/icons"
+import { FormCreateTask } from "."
 
 const FormCreateItem = props => {
   const { addTask } = useTodoActions()
-  const { chosenItem, color } = useContext(TodoContext)
+  const { chosenItem, color, taskInput } = useContext(TodoContext)
   const { showTasks } = useTodoActions()
 
   return (
@@ -82,6 +83,11 @@ const FormCreateItem = props => {
             Show
           </div>
         </div>
+      </div>
+
+      {/*Input for entering tasks */}
+      <div>
+        {taskInput ? <FormCreateTask/> : null}
       </div>
     </>
   )
