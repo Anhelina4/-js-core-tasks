@@ -4,7 +4,6 @@ import CategoryContainer from "./CategoryContainer"
 import { ListContainer } from "."
 import { PlusCircleOutlined } from "@ant-design/icons"
 import { useTodoActions } from "../hooks"
-import "../../../index.css"
 
 const TodoSidebar = () => {
   const { showForm } = useTodoActions()

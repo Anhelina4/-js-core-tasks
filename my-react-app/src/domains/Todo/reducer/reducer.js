@@ -16,7 +16,7 @@ const reducer = (state, action) => {
       ...newState.currentList.children,
       { taskName: payload.task, taskId: payload.idTask },
     ]
-    state.lists
+    newState.lists
       .map(item => {
         return item.id === newState.currentList.id
           ? (item.children = [

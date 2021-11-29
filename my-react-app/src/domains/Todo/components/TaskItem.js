@@ -34,23 +34,20 @@ const TaskItem = props => {
     //     &times;
     //   </button>
     // </div>
-    <>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "flex-start",
-        }}>
+    <div style={{ display: "flex" }}>
+      <div>
         <input
+          className="checkbox-round"
           type="checkbox"
-          class="checkbox-round"
-          id="checkbox"
+          id={taskId}
           value={task}
         />
-        <label for="checkbox"></label>
-        <div id="taskId" className="task">{task}</div>
+        <label htmlFor={taskId}></label>
       </div>
-    </>
+      <div id="taskId" className="task">
+        {task}
+      </div>
+    </div>
   )
 }
 

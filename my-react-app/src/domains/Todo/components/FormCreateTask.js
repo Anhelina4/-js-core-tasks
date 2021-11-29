@@ -13,9 +13,7 @@ const FormCreateTask = () => {
         alignItems: "center",
         justifyContent: "center",
       }}>
-        <input type="checkbox" class="checkbox-round" id="checkbox" 
-           value={task}/>
-        <label for="checkbox"></label>
+        
       <Input
         style={{ background: "white", marginLeft:"8px" }}
         placeholder="Enter your task"
