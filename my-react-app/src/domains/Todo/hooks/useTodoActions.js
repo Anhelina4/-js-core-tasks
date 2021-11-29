@@ -30,7 +30,6 @@ const useTodoActions = () => {
   }
   const showTasks = () => {
     setTaskInput(!taskInput)
-    // setTaskInput(true)
   }
   const edit = () => {
     setEditInput(!editInput)
