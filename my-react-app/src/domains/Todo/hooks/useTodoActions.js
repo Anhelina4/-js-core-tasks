@@ -26,7 +26,6 @@ const useTodoActions = () => {
 
   const showForm = e => {
     setDisplay(!display)
-    // setDisplayList(false)
   }
   const showTasks = () => {
     setTaskInput(!taskInput)
