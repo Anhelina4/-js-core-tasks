@@ -14,14 +14,14 @@ const reducer = (state, action) => {
     const { payload } = action
     newState.currentList.children = [
       ...newState.currentList.children,
-      { taskName: payload.task, taskId: payload.idTask },
+      { taskName: payload.task, taskId: payload.idTask, },
     ]
     newState.lists
       .map(item => {
         return item.id === newState.currentList.id
           ? (item.children = [
               ...item.children,
-              { taskName: payload.task, taskId: payload.idTask },
+              { taskName: payload.task, taskId: payload.idTask,  },
             ])
           : null
       })

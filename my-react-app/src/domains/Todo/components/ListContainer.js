@@ -19,7 +19,6 @@ const ListContainer = () => {
               key={id}
               id={item.id}
               children={item.children}
-              change={() => editListItem(item.id)}
             />
           )
         })}

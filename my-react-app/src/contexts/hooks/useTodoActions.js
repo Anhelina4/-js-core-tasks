@@ -36,19 +36,22 @@ const useTodoActions = () => {
       setList("")
     }
   }
-  const showListsTask = id => {
+  const showListsTask = (id) => {
+    console.log(id)
     state.lists.filter(item => {
       if (item.id === id) {
         setChosenItem(item.listName)
         setDisplayList(true)
         setColor("#1b9dc4")
         state.currentList = item;
+        console.log(state)
+        return state
       }
     })
   }
   const addTask = (e) => {
     if (task !== "" && e.key==="Enter") {
-      dispatch({ type: "add-task", payload: { task, idTask } })
+      dispatch({ type: "add-task", payload: { task, idTask  } })
       setTask("")
     }
 

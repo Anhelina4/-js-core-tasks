@@ -8,11 +8,9 @@ const TaskContainer = () => {
   return (
     <>
       <div style={{ display: "flex", flexDirection: "column" }}>
-        {state.currentList.children
-          ? state.currentList.children.map(item => (
-              <TaskItem task={item.taskName} taskId={item.taskId} />
-            ))
-          : null}
+        {state.currentList.children.map((item, index) => {
+              return <TaskItem task={item.taskName} taskId={item.taskId}  />
+        })}
       </div>
     </>
   )

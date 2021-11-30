@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import useTodoActions from "../../../contexts/hooks/useTodoActions"
 import { TodoContext } from "../../../contexts"
 import { CloseOutlined } from "@ant-design/icons"
@@ -6,10 +6,26 @@ import { BsFlagFill } from "react-icons/bs"
 
 const TaskItem = props => {
   const { task, taskId } = props
-  const { deleteTask, makeFlagged } = useTodoActions()
+  console.log(task)
+  const { deleteTask } = useTodoActions()
+  const { state } = useContext(TodoContext)
+  const [change, setChange] = useState(false)
+  const [newTask, setNewTask] = useState("")
+
+  const renameTask=()=>{
+      console.log(newTask)
+      console.log("CurrentState: ", state.currentList)
+      console.log("State: ", state)
+      state.currentList.childre = state.currentList.children.map(item=>{
+          if(item.taskId === taskId){
+              item.taskName = newTask
+          }
+          return {...state}
+      })
+  }
   return (
-    <>
-      <div>
+    <div style={{ display: "flex", alignItems: "center", marginBottom: "8px" }}>
+      <div style={{ position: "relative" }}>
         <input
           className="checkbox-round"
           type="checkbox"
@@ -18,20 +34,38 @@ const TaskItem = props => {
         />
         <label htmlFor={taskId}></label>
       </div>
-      <div className="task-item">
-        <div id="taskId" className="task-text">
+      {change ? (
+        <>
+          <input
+            autoFocus
+            onClick={() => {
+              setChange(!change)
+            }}
+            onChange={e => setNewTask(e.target.value)}
+            value={newTask}
+          />
+          <button onClick={renameTask}>+</button>
+        </>
+      ) : (
+        <div
+          className="task-text"
+          onClick={() => {
+            setChange(!change)
+          }}>
           {task}
         </div>
-        <div style={{ display: "flex" }}>
-          <BsFlagFill className="flag" onClick={() => makeFlagged(taskId)} />
-          <CloseOutlined
-            className="btn-delete"
-            style={{ margin: "0px" }}
-            onClick={() => deleteTask(taskId)}
-          />
-        </div>
+      )}
+      {}
+
+      <div style={{ display: "flex", marginLeft: "auto" }}>
+        <BsFlagFill className="flag" />
+        <CloseOutlined
+          className="btn-delete"
+          style={{ margin: "0px" }}
+          onClick={() => deleteTask(taskId)}
+        />
       </div>
-    </>
+    </div>
   )
 }
 
