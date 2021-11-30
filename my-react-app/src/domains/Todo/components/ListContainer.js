@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { ListItem } from "."
-import { useTodoActions } from "../hooks"
-import { TodoContext } from "../contexts"
+import { useTodoActions } from "../../../contexts/hooks"
+import { TodoContext } from "../../../contexts"
 
 const ListContainer = () => {
   const { state } = useContext(TodoContext)

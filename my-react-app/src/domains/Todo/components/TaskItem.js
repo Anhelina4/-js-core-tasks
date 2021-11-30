@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
-import useTodoActions from "../hooks/useTodoActions"
-import { TodoContext } from "../contexts"
+import useTodoActions from "../../../contexts/hooks/useTodoActions"
+import { TodoContext } from "../../../contexts"
 import { CloseOutlined } from "@ant-design/icons"
 import { BsFlagFill } from "react-icons/bs"
 

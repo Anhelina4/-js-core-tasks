@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import TodoContext from "../contexts/TodoContext"
+import TodoContext from "../TodoContext"
 import { v4 as uuidv4 } from "uuid"
 
 const useTodoActions = () => {

@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
-import { useTodoActions } from "../hooks"
-import { TodoContext } from "../contexts"
+import { useTodoActions } from "../../../contexts/hooks"
+import { TodoContext } from "../../../contexts"
 import { UnorderedListOutlined, CloseOutlined } from "@ant-design/icons"
 
 const ListItem = props => {

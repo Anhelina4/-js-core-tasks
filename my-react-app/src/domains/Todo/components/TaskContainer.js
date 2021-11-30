@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import { TaskItem } from "."
-import { TodoContext } from "../contexts"
+import { TodoContext } from "../../../contexts"
 
 const TaskContainer = () => {
   const { state } = useContext(TodoContext)

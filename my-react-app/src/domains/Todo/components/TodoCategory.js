@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { TodoContext } from "../contexts"
+import { TodoContext } from "../../../contexts"
 
 function TodoCategory(props) {
   const { icon, text, clas, amount, iconColor } = props

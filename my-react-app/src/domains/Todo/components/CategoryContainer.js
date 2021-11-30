@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react"
 import { TodoCategory } from "."
-import { TodoContext } from "../contexts"
+import { TodoContext } from "../../../contexts"
 import {
   BsCalendarMinus,
   BsCalendar2Event,
