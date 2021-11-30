@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { ListItem } from "."
-import useTodoActions from "../hooks/useTodoActions"
-import TodoContext from "../contexts/TodoContext"
+import { useTodoActions } from "../hooks"
+import { TodoContext } from "../contexts"
 
 const ListContainer = () => {
   const { state } = useContext(TodoContext)
@@ -10,8 +10,8 @@ const ListContainer = () => {
 
   return (
     <div>
-      <h3 className="title-mylists">My Lists</h3>
-      <div className="div-scrollbar">
+      <h3 className="title-sm">My Lists</h3>
+      <div className="sidebar-list-container">
         {state.lists.map((item, id) => {
           return (
             <ListItem
@@ -19,14 +19,14 @@ const ListContainer = () => {
               key={id}
               id={item.id}
               children={item.children}
-              change = {()=>editListItem(item.id)}
+              change={() => editListItem(item.id)}
             />
           )
         })}
         {display ? (
           <div className="display-center">
             <input
-              className="list-input"
+              className="input-lg"
               onChange={e => setList(e.target.value)}
               onKeyDown={handleKeyDownList}
               value={list}></input>

@@ -1,22 +1,18 @@
 import React, { useContext } from "react"
-import { Checkbox, Input, Tooltip } from "antd"
-import {BsFillPlusCircleFill} from "react-icons/bs";
-import { InfoCircleOutlined } from "@ant-design/icons"
 import { TodoContext } from "../contexts"
 import { useTodoActions } from "../hooks"
+import { Input, Tooltip } from "antd"
+import { BsFillPlusCircleFill } from "react-icons/bs"
+import { InfoCircleOutlined } from "@ant-design/icons"
+
 const FormCreateTask = () => {
-  const { state, setTask, task} = useContext(TodoContext)
-  const {addTask} = useTodoActions()
+  const { setTask, task } = useContext(TodoContext)
+  const { addTask } = useTodoActions()
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}>
-        <BsFillPlusCircleFill style={{marginLeft:"2px" , fill:"grey"}}/>
+    <div className="display-center">
+      <BsFillPlusCircleFill style={{ marginLeft: "2px", fill: "grey" }} />
       <Input
-        style={{ background: "white", marginLeft:"4px" }}
+        style={{ background: "white", marginLeft: "4px" }}
         placeholder="Enter your task"
         suffix={
           <Tooltip title="Extra information">

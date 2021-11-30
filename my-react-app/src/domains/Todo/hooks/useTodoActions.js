@@ -21,7 +21,7 @@ const useTodoActions = () => {
     editList, 
     setEditList,
     color,
-    setColor,
+    setColor,flagged, setFlagged
   } = useContext(TodoContext)
 
   const showForm = e => {
@@ -29,9 +29,6 @@ const useTodoActions = () => {
   }
   const showTasks = () => {
     setTaskInput(!taskInput)
-  }
-  const deleteTask = (item, index) => {
-    dispatch({ type: "delete-task", payload: { item, index } })
   }
   const handleKeyDownList = e => {
     if (e.key === "Enter" && list !== "") {
@@ -70,6 +67,16 @@ const useTodoActions = () => {
      }
     })
   }
+  const deleteTask=(index)=>{
+    dispatch({type:"delete-task", payload:{TaskId:index}})
+  }
+  const makeFlagged=(id)=>{
+   state.currentList.children.map(item=>{
+     if (item.taskId === id){
+       setFlagged(!flagged)
+     }
+   })
+  }
   return {
     setList,
     list,
@@ -81,6 +88,7 @@ const useTodoActions = () => {
     editListItem,
     deleteTask,
     deleteList,
+    makeFlagged
   }
 }
 

@@ -32,10 +32,10 @@ const reducer = (state, action) => {
     const newState = { ...state }
     const { payload } = action
     newState.currentList.children = state.currentList.children.filter(item => {
-      return item.taskId !== payload.index
+      return item.taskId !== payload.TaskId
     })
     console.log(newState)
-    return newState
+    return {...newState}
   }
 
   if (action.type === "sort-direct") {

@@ -8,11 +8,11 @@ import { useTodoActions } from "../hooks"
 const TodoSidebar = () => {
   const { showForm } = useTodoActions()
   return (
-    <div className="todo-sidebar">
+    <div className="sidebar">
       <TodoInput />
       <CategoryContainer />
       <ListContainer />
-      <button onClick={showForm} className="btn-plus">
+      <button onClick={showForm} className="btn-add-primary">
         <PlusCircleOutlined
           style={{ height: "14px", width: "14px", marginRight: "8px" }}
         />

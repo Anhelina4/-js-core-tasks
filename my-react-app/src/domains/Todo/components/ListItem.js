@@ -1,36 +1,31 @@
-import React, { useState, useEffect, useContext } from "react"
-import { UnorderedListOutlined, CloseOutlined } from "@ant-design/icons"
-import useTodoActions from "../hooks/useTodoActions"
-import PropTypes from "prop-types"
+import React, { useContext } from "react"
+import { useTodoActions } from "../hooks"
 import { TodoContext } from "../contexts"
+import { UnorderedListOutlined, CloseOutlined } from "@ant-design/icons"
+
 const ListItem = props => {
   const { listName, children, id } = props
-  const {
-    showListsTask,
-    deleteList,
-    editListItem
-  } = useTodoActions()
-  const { taskNumber, changeList, change } = props
-  const { editList, setEditList, list, setList } = useContext(TodoContext)
+  const { showListsTask, deleteList, editListItem } = useTodoActions()
+  const { change } = props
+  const { editList, list, setList } = useContext(TodoContext)
   return (
     <>
       {!editList ? (
         <div
           style={{ cursor: "pointer" }}
-          className="list-container display-spacebetw"
+          className="list-container display-spacebetween"
           children={children}
           id={id}
           onClick={() => showListsTask(id)}>
           <div className="display-center">
             <UnorderedListOutlined className="list-icon" />
-            <div className="title-list " 
-              onClick={change}>
+            <div className="text-sm " onClick={change}>
               {listName}
             </div>
           </div>
-          <div className="list-counter">
+          <div>
             <CloseOutlined
-              className="btn-close"
+              className="btn-delete"
               onClick={() => deleteList(id)}
             />
           </div>
@@ -38,18 +33,18 @@ const ListItem = props => {
       ) : (
         <div
           style={{ cursor: "pointer" }}
-          className="list-container display-spacebetw"
+          className="list-container display-spacebetween"
           children={children}
           id={id}
           onClick={() => showListsTask(id)}>
-          <div className="display-center" >
+          <div className="display-center">
             <UnorderedListOutlined className="list-icon" />
             <input
               autoFocus
               style={{ cursor: "text", fontSize: "12px" }}
               onChange={e => setList(e.target.value)}
               value={list}
-              onClick={()=>editListItem(id)}
+              onClick={() => editListItem(id)}
             />
           </div>
         </div>

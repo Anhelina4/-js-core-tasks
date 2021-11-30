@@ -10,13 +10,15 @@ function TodoCategory(props) {
       style={{ cursor: "pointer" }}
       onClick={() => setColor(iconColor)}>
       <div onClick={() => setChosenItem(text)}>
-        <div className="container-icons">
-          <div className="icon-back" style={{ background: `${iconColor}` }}>
+        <div className="category-icon">
+          <div
+            className="category-icon-background"
+            style={{ background: `${iconColor}` }}>
             {icon}
           </div>
-          <div className="amount-counter">{amount}</div>
+          <div className="task-counter">{amount}</div>
         </div>
-        <div className="container-text">{text}</div>
+        <div className="text-sm-align">{text}</div>
       </div>
     </div>
   )
