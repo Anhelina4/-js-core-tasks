@@ -19,7 +19,8 @@ function App() {
   const [task, setTask] = useState("")
   const [chosenItem, setChosenItem] = useState("New List")
   const [editList, setEditList] = useState(false)
-  const [flagged, setFlagged] = useState(false)
+  
+  
   return (
     <TodoContext.Provider
       value={{
@@ -43,7 +44,6 @@ function App() {
         setAmount,
         color,
         setColor,editList, setEditList,
-        flagged, setFlagged
       }}>
       <div className="App">
         <TodoSidebar />

@@ -18,7 +18,8 @@ const reducer = (state, action) => {
         taskName: payload.task,
         taskId: payload.idTask,
         parentId: newState.currentList.id,
-        isFlagged: "false",
+        isFlagged: false,
+        isChecked: false,
       },
     ]
     newState.lists.map(item => {
@@ -29,7 +30,8 @@ const reducer = (state, action) => {
               taskName: payload.task,
               taskId: payload.idTask,
               parentId: newState.currentList.id,
-              isFlagged: "false",
+              isFlagged: false,
+              isChecked: false
             },
           ])
         : null
@@ -62,12 +64,44 @@ const reducer = (state, action) => {
 
     console.log(payload)
     newState.currentList.children = newState.currentList.children.map(item => {
-      console.log("taskid:", item.taskId)
-      console.log("taskId from payload:", payload.taskId)
-      console.log("NameOld:", item.taskName)
-      console.log("NameNew:", payload.newTask)
+      // console.log("taskid:", item.taskId)
+      // console.log("taskId from payload:", payload.taskId)
+      // console.log("NameOld:", item.taskName)
+      // console.log("NameNew:", payload.newTask)
       return item.taskId === payload.taskId
         ? {...item, taskName: payload.newTask} : {...item}
+    })
+    return {...newState}
+  }
+  if(action.type === "set-checked") {
+    const newState = { ...state }
+    const { payload } = action
+    console.log(payload)
+    newState.currentList.children = newState.currentList.children.map(item=>{
+      // console.log(item)
+      return item.taskId === payload.taskId ? {...item, isChecked: payload.isChecked}: {...item}
+    })
+    // newState.lists.map(item=>{
+    //   // console.log("listId:", item.id)
+    //   // console.log("currentId", newState.currentList.id)
+    //   console.log(payload)
+    //   console.log(item)
+    //   console.log(newState.currentList)
+    //   const changedItem = newState.lists.find(item => item.id === newState.currentList.id)
+    //   console.log("find changed item from lists", changedItem)
+    //   const index = newState.lists.indexOf(changedItem)
+    //   console.log(index);
+    //   newState.lists[index] = newState.currentList
+
+    //   return {...newState}
+    // })
+    return {...newState}
+  }
+  if(action.type === "set-flagged"){
+    const newState = {...state}
+    const {payload} = action
+    newState.currentList.children = newState.currentList.children.map(item=>{
+      return item.taskId === payload.taskId ? {...item, isFlagged: payload.isFlagged} : {...item}
     })
     return {...newState}
   }

@@ -377,7 +377,7 @@
   cursor: pointer;
   border: 2px solid #1b9dc4;
 }
-.checkbox-round:checked + label:after {
+.checkbox-round + label:after {
   content: "";
   position: absolute;
   top: 4px;
@@ -387,6 +387,29 @@
   border-radius: 50%;
   background: #1b9dc4;
   cursor: pointer;
+}
+
+.checkbox-round-unchecked {
+  opacity: 0%;
+  cursor: pointer;
+}
+.checkbox-round-unchecked + label {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.checkbox-round-unchecked + label:before {
+  content: "";
+  position: absolute;
+  display:block;
+  top: 0px;
+  left: 0px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  border: 2px solid #1b9dc4;
 }
 .task-text {
   font-size: 12px;
