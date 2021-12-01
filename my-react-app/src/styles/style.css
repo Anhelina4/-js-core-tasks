@@ -86,7 +86,8 @@
 .text-sm-align {
   display: flex;
   justify-content: flex-start;
-  margin: 8px 8px 4px 8px;
+  margin: 8px 4px 0px 8px;
+  padding-bottom: 4px;
   color: #000000d9;
   font-weight: 500;
   font-size: 12px;
@@ -418,14 +419,18 @@
   margin-left: 28px;
   justify-self: flex-start;
 }
+.list-text{
+  display:flex;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.85);
+  margin: 4px 8px;
+}
 .task-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgb(199, 199, 199);
-  margin-bottom: 8px;
-  margin-left: 8px;
-  margin-right: 8px;
+  margin: 8px;
 }
 .task-input{
   height:22px;

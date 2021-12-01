@@ -13,7 +13,7 @@ const CategoryContainer = () => {
   const icon2 = <BsCalendar2Event style={{ fill: "white" }} />
   const icon3 = <BsFillInboxFill style={{ fill: "white" }} />
   const icon4 = <BsFlagFill style={{ fill: "white" }} />
-  const { state, amount, setAmount } = useContext(TodoContext)
+  const { state, amount, setAmount, dispatch } = useContext(TodoContext)
   let sum = 0
   useEffect(() => {
     state.lists.map(item => {
@@ -31,6 +31,9 @@ const CategoryContainer = () => {
           text="Today"
           clas="category"
           amount="0"
+          showCategory={()=>{dispatch({type:"today-tasks"})
+          console.log("show-today")
+          }}
         />
         <TodoCategory
           icon={icon2}
@@ -38,6 +41,7 @@ const CategoryContainer = () => {
           text="Scheduled"
           clas="category"
           amount="0"
+          showCategory={()=>{dispatch({type:"scheduled-tasks"})}}
         />
       </div>
       <div className="display-spacebetween" style={{ marginBottom: "6px" }}>
@@ -47,6 +51,7 @@ const CategoryContainer = () => {
           text="All"
           clas="category"
           amount={amount}
+          showCategory={()=>{dispatch({type:"all-tasks"})}}
         />
         <TodoCategory
           icon={icon4}
@@ -54,6 +59,7 @@ const CategoryContainer = () => {
           text="With flag"
           clas="category"
           amount="0"
+          showCategory={()=>{dispatch({type:"flagged-tasks"})}}
         />
       </div>
     </>

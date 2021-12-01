@@ -2,9 +2,10 @@ import React, { useContext } from "react"
 import { TodoContext } from "../../../contexts"
 
 function TodoCategory(props) {
-  const { icon, text, clas, amount, iconColor } = props
+  const { icon, text, clas, amount, iconColor, showCategory } = props
   const { setChosenItem, setColor } = useContext(TodoContext)
   return (
+    <div onClick={showCategory}>
     <div
       className={clas}
       style={{ cursor: "pointer" }}
@@ -20,6 +21,7 @@ function TodoCategory(props) {
         </div>
         <div className="text-sm-align">{text}</div>
       </div>
+    </div>
     </div>
   )
 }

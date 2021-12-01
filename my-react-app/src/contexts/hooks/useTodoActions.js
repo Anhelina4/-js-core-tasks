@@ -58,6 +58,7 @@ const useTodoActions = () => {
   }
   const deleteList=(index)=>{
       dispatch({type:"delete-list", payload:{index:index}})
+      
   }
   const editListItem=(id)=>{
     console.log(id)

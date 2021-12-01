@@ -54,6 +54,7 @@ const reducer = (state, action) => {
     newState.lists = state.lists.filter(item => {
       return item.id !== payload.index
     })
+    newState.currentList = {}
     console.log(newState)
 
     return newState
@@ -103,6 +104,36 @@ const reducer = (state, action) => {
     newState.currentList.children = newState.currentList.children.map(item=>{
       return item.taskId === payload.taskId ? {...item, isFlagged: payload.isFlagged} : {...item}
     })
+    return {...newState}
+  }
+  if(action.type === "today-tasks"){
+    const newState = {...state}
+    const {payload} = action
+    newState.currentList = {id:"Today-mocked", listName:"Today", children:[
+      {isChecked: false, isFlagged: true, parentId: "Today-mocked", taskId:"1", taskName:"Buy some medicine"},
+      {isChecked: true, isFlagged: true, parentId: "Today-mocked", taskId:"2", taskName:"Go for a stroll with the dog"},
+      {isChecked: true, isFlagged: true, parentId: "Today-mocked", taskId:"3", taskName:"Buy wine and bread"},
+      {isChecked: false, isFlagged: true, parentId: "Today-mocked", taskId:"4", taskName:"Call to the chef"},
+      {isChecked: true, isFlagged: true, parentId: "Today-mocked", taskId:"5", taskName:"Cry"}
+    ]}
+    return {...newState}
+  }
+  if(action.type === "scheduled-tasks"){
+    const newState = {...state}
+    const {payload} = action
+    newState.currentList = {listName:"Scheduled"};
+    return {...newState}
+  }
+  if(action.type === "all-tasks"){
+    const newState = {...state}
+    const {payload} = action
+    newState.currentList = {listName:"All"};
+    return {...newState}
+  }
+  if(action.type === "flagged-tasks"){
+    const newState = {...state}
+    const {payload} = action
+    newState.currentList = {listName:"With flagg"};
     return {...newState}
   }
 }

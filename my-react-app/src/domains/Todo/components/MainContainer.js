@@ -3,13 +3,13 @@ import { useContext } from "react"
 import { FormCreateItem } from "."
 import { TodoContext } from "../../../contexts"
 import TaskContainer from "./TaskContainer"
-
+import TodayCategory from "./TodayCategory"
 const MainContainer = () => {
   const { state } = useContext(TodoContext)
   return (
     <div className="main-container">
       <FormCreateItem />
-      {state.currentList.children ? (
+      { state.currentList.children!==undefined && Object.entries(state.currentList.children).length!==0   ? (
         <div className="main-list-container">
           <TaskContainer />
         </div>
@@ -25,6 +25,7 @@ const MainContainer = () => {
           No reminders
         </div>
       )}
+
     </div>
   )
 }

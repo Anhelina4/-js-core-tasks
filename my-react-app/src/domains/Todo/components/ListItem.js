@@ -41,7 +41,8 @@ const ListItem = props => {
           <div>
             <CloseOutlined
               className="btn-delete"
-              onClick={() => deleteList(id)}
+              onClick={() => {deleteList(id)
+              }}
             />
           </div>
         </div>

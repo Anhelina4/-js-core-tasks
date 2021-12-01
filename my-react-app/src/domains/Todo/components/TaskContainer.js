@@ -4,7 +4,6 @@ import { TodoContext } from "../../../contexts"
 
 const TaskContainer = () => {
   const { state } = useContext(TodoContext)
-  console.log(state.currentList.children.length)
   return (
     <>
       <div style={{ display: "flex", flexDirection: "column" }}>

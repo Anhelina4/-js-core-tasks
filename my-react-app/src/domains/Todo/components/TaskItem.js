@@ -15,7 +15,7 @@ const TaskItem = props => {
   const [isFlagged, setIsFlagged] = useState(true)
   
   return (
-    <div style={{ display: "flex", alignItems: "center", marginBottom: "8px" }}>
+    <div className="task-item">
       <div style={{ position: "relative" }} onClick={()=>dispatch({type:"set-checked", payload:{taskId, isChecked}})}>
         {!isChecked ? <><input
           className="checkbox-round"

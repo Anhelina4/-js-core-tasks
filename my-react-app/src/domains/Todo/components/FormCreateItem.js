@@ -5,7 +5,7 @@ import { PlusOutlined } from "@ant-design/icons"
 import { FormCreateTask } from "."
 
 const FormCreateItem = props => {
-  const { chosenItem, color, taskInput } = useContext(TodoContext)
+  const { chosenItem, color, taskInput, state } = useContext(TodoContext)
   const { showTasks } = useTodoActions()
 
   return (
@@ -18,7 +18,7 @@ const FormCreateItem = props => {
         </div>
         <div className="display-spacebetween">
           <h1 className="title-lg" style={{ color: `${color}` }}>
-            {chosenItem}
+            {state.currentList.listName ? state.currentList.listName : "New List"}
           </h1>
           <h1 className="title-lg">0</h1>
         </div>
