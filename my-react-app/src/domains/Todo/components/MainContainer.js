@@ -3,7 +3,7 @@ import { useContext } from "react"
 import { FormCreateItem } from "."
 import { TodoContext } from "../../../contexts"
 import TaskContainer from "./TaskContainer"
-import TodayCategory from "./TodayCategory"
+
 const MainContainer = () => {
   const { state } = useContext(TodoContext)
   return (
