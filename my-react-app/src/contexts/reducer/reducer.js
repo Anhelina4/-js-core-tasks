@@ -75,6 +75,24 @@ const reducer = (state, action) => {
     })
     return { ...newState }
   }
+  if(action.type==="rename-list"){
+    const newState = { ...state }
+    const { payload } = action
+    newState.currentList.listName = payload.editedList
+    // newState.lists.map(item=>{
+    //   return item.id === payload.id ? {...item, listName: payload.editedList} : {...item}
+    // })
+    newState.lists.map(item=>{
+      const changedItem = newState.lists.find(item => item.id === newState.currentList.id)
+      // console.log("find changed item from lists", changedItem)
+      const index = newState.lists.indexOf(changedItem)
+      // console.log(index);
+      newState.lists[index] = newState.currentList
+
+      return {...newState}
+    })
+    return { ...newState }
+  }
   if (action.type === "set-checked") {
     const newState = { ...state }
     const { payload } = action
@@ -116,7 +134,7 @@ const reducer = (state, action) => {
     const { payload } = action
     newState.currentList = {
       id: "Scheduled-mocked",
-      categoryName: "Scheduled",
+      listName: "Scheduled",
       children: [
         {
           isChecked: false,
@@ -162,7 +180,7 @@ const reducer = (state, action) => {
   if (action.type === "today-tasks") {
     const newState = { ...state }
     const { payload } = action
-    newState.currentList = { categoryName: "Today" }
+    newState.currentList = { listName: "Today" }
     return { ...newState }
   }
   if (action.type === "all-tasks") {
@@ -175,13 +193,25 @@ const reducer = (state, action) => {
         allArr.push(elem)
       })
     })
-    newState.currentList = {categoryName:"All", children: allArr}
+    newState.currentList = {listName:"All", children: allArr}
     return { ...newState }
   }
   if (action.type === "flagged-tasks") {
     const newState = { ...state }
     const { payload } = action
-    newState.currentList = { categoryName: "With flagg" }
+    const flaggedArr=[]
+    state.lists.map(item=>{
+      flaggedArr.push(item.listName)
+      item.children.map(elem=>{
+        
+        if(elem.isFlagged === true){
+          console.log(elem.isFlagged)
+          flaggedArr.push(elem)
+        }
+      })
+    })
+    console.log(flaggedArr)
+    newState.currentList = { listName: "With flagg", children: flaggedArr }
     return { ...newState }
   }
 }

@@ -8,7 +8,7 @@ const ListItem = props => {
   const { showListsTask, deleteList } = useTodoActions()
   const [isEditedList, setIsEditedList] = useState(false)
   const [editedList, setEditedList] = useState(listName)
-  const {setChosenItem, state} = useContext(TodoContext)
+  const {setChosenItem, state, dispatch} = useContext(TodoContext)
   return (
     <>
         <div
@@ -28,9 +28,7 @@ const ListItem = props => {
               onKeyDown={(e) => {
                 if(e.key == 'Enter') {
                   setIsEditedList(!isEditedList) 
-                  state.lists.map(item=>{
-                    return item.id === id ? item.listName = editedList : item.listName
-                  })
+                  dispatch({type:"rename-list", payload:{editedList, id}})
                 }
               }}/> : <div className="text-sm ">
               <span onClick={() => setIsEditedList(!isEditedList)}>{editedList}</span>

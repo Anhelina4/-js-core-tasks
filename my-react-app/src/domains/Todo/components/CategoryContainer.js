@@ -13,15 +13,21 @@ const CategoryContainer = () => {
   const icon2 = <BsCalendar2Event style={{ fill: "white" }} />
   const icon3 = <BsFillInboxFill style={{ fill: "white" }} />
   const icon4 = <BsFlagFill style={{ fill: "white" }} />
-  const { state, amount, setAmount, dispatch } = useContext(TodoContext)
+  const { state, amount, setAmount, dispatch, flagAmount, setFlagAmount } = useContext(TodoContext)
   let sum = 0
+  let flaggedSum = 0;
   useEffect(() => {
     state.lists.map(item => {
       sum +=item.children.length
+      item.children.map(elem=>{
+        if (elem.isFlagged === true){
+          ++flaggedSum;
+        }
+      })
     })
     setAmount(sum)
+    setFlagAmount(flaggedSum)
   }, [state, state.currentList ])
-
   return (
     <>
       <div className="display-spacebetween" style={{ marginBottom: "12px" }}>
@@ -40,7 +46,7 @@ const CategoryContainer = () => {
           iconColor="#fa1f02"
           text="Scheduled"
           clas="category"
-          amount="0"
+          amount="5"
           showCategory={()=>{dispatch({type:"scheduled-tasks"})}}
         />
       </div>
@@ -58,7 +64,7 @@ const CategoryContainer = () => {
           iconColor="#e5a502"
           text="With flag"
           clas="category"
-          amount="0"
+          amount={flagAmount}
           showCategory={()=>{dispatch({type:"flagged-tasks"})}}
         />
       </div>
