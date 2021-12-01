@@ -27,14 +27,20 @@ const TaskItem = props => {
       {change ? (
         <>
           <input
+          style={{marginLeft:"30px"}}
             autoFocus
             onClick={() => {
               setChange(!change)
             }}
             onChange={e => setNewTask(e.target.value)}
             value={newTask}
+            onKeyDown={(e)=>{
+              if(e.key === "Enter"){
+                dispatch({type:"rename-task", payload:{newTask, taskId}})
+                setChange(false)
+              }
+            }}
           />
-          <button onClick={()=>dispatch({type:"rename-task", payload:{newTask, taskId}})}>+</button>
         </>
       ) : (
         <div
@@ -45,7 +51,6 @@ const TaskItem = props => {
           {task}
         </div>
       )}
-      {}
 
       <div style={{ display: "flex", marginLeft: "auto" }}>
         <BsFlagFill className="flag" />
