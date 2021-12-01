@@ -424,6 +424,7 @@
   font-size: 16px;
   color: rgba(0, 0, 0, 0.85);
   margin: 4px 8px;
+  font-weight: 600;
 }
 .task-item {
   display: flex;

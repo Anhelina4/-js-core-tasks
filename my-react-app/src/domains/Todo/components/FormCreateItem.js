@@ -18,7 +18,7 @@ const FormCreateItem = props => {
         </div>
         <div className="display-spacebetween">
           <h1 className="title-lg" style={{ color: `${color}` }}>
-            {state.currentList.listName ? state.currentList.listName : "New List"}
+            {state.currentList.categoryName ? state.currentList.categoryName : "New List"}
           </h1>
           <h1 className="title-lg">0</h1>
         </div>
