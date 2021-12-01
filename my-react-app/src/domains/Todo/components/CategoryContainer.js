@@ -15,12 +15,12 @@ const CategoryContainer = () => {
   const icon4 = <BsFlagFill style={{ fill: "white" }} />
   const { state, amount, setAmount } = useContext(TodoContext)
   let sum = 0
-  useEffect(() => {
-    state.lists.map(item => {
-      sum +=item.children.length
-    })
-    setAmount(sum)
-  }, [state, state.currentList ])
+  // useEffect(() => {
+  //   state.lists.map(item => {
+  //     sum +=item.children.length
+  //   })
+  //   setAmount(sum)
+  // }, [state, state.currentList ])
 
   return (
     <>

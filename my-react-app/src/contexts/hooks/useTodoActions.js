@@ -51,7 +51,7 @@ const useTodoActions = () => {
   }
   const addTask = (e) => {
     if (task !== "" && e.key==="Enter") {
-      dispatch({ type: "add-task", payload: { task, idTask  } })
+      dispatch({ type: "add-task", payload: { task, idTask } })
       setTask("")
     }
 

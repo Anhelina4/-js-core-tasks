@@ -8,21 +8,11 @@ const TaskItem = props => {
   const { task, taskId } = props
   console.log(task)
   const { deleteTask } = useTodoActions()
-  const { state } = useContext(TodoContext)
+  const { state, dispatch } = useContext(TodoContext)
   const [change, setChange] = useState(false)
   const [newTask, setNewTask] = useState("")
 
-  const renameTask=()=>{
-      console.log(newTask)
-      console.log("CurrentState: ", state.currentList)
-      console.log("State: ", state)
-      state.currentList.childre = state.currentList.children.map(item=>{
-          if(item.taskId === taskId){
-              item.taskName = newTask
-          }
-          return {...state}
-      })
-  }
+  
   return (
     <div style={{ display: "flex", alignItems: "center", marginBottom: "8px" }}>
       <div style={{ position: "relative" }}>
@@ -44,7 +34,7 @@ const TaskItem = props => {
             onChange={e => setNewTask(e.target.value)}
             value={newTask}
           />
-          <button onClick={renameTask}>+</button>
+          <button onClick={()=>dispatch({type:"rename-task", payload:{newTask, taskId}})}>+</button>
         </>
       ) : (
         <div
