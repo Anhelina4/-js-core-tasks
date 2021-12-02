@@ -1,20 +1,20 @@
 import React, { useContext } from "react"
-import { ListItem } from "."
-import { useTodoActions } from "../../../contexts/hooks"
-import { TodoContext } from "../../../contexts"
+import TaskListSimpleView from "../TaskListSimpleView"
+import { useListActions } from "../../../../contexts/hooks"
+import { TodoContext } from "../../../../contexts"
 
-const ListContainer = () => {
+const TaskListList = () => {
   const { state } = useContext(TodoContext)
-  const { handleKeyDownList, editListItem } = useTodoActions()
+  const { handleKeyDownList } = useListActions()
   const { display, setList, list } = useContext(TodoContext)
 
   return (
-    <div>
+    <>
       <h3 className="title-sm">My Lists</h3>
       <div className="sidebar-list-container">
         {state.lists.map((item, id) => {
           return (
-            <ListItem
+            <TaskListSimpleView
               listName={item.listName}
               key={id}
               id={item.id}
@@ -32,8 +32,8 @@ const ListContainer = () => {
           </div>
         ) : null}
       </div>
-    </div>
+    </>
   )
 }
 
-export default ListContainer
+export default TaskListList

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react"
 import { TodoCategory } from "."
+import { useNavigate } from "react-router-dom"
 import { TodoContext } from "../../../contexts"
 import {
   BsCalendarMinus,
@@ -9,25 +10,27 @@ import {
 } from "react-icons/bs"
 
 const CategoryContainer = () => {
+  let navigate = useNavigate()
   const icon1 = <BsCalendarMinus style={{ fill: "white" }} />
   const icon2 = <BsCalendar2Event style={{ fill: "white" }} />
   const icon3 = <BsFillInboxFill style={{ fill: "white" }} />
   const icon4 = <BsFlagFill style={{ fill: "white" }} />
-  const { state, amount, setAmount, dispatch, flagAmount, setFlagAmount } = useContext(TodoContext)
+  const { state, amount, setAmount, dispatch, flagAmount, setFlagAmount } =
+    useContext(TodoContext)
   let sum = 0
-  let flaggedSum = 0;
+  let flaggedSum = 0
   useEffect(() => {
     state.lists.map(item => {
-      sum +=item.children.length
-      item.children.map(elem=>{
-        if (elem.isFlagged === true){
-          ++flaggedSum;
+      sum += item.children.length
+      item.children.map(elem => {
+        if (elem.isFlagged === true) {
+          ++flaggedSum
         }
       })
     })
     setAmount(sum)
     setFlagAmount(flaggedSum)
-  }, [state, state.currentList ])
+  }, [state, state.currentList])
   return (
     <>
       <div className="display-spacebetween" style={{ marginBottom: "12px" }}>
@@ -37,9 +40,9 @@ const CategoryContainer = () => {
           text="Today"
           clas="category"
           amount="0"
-          showCategory={()=>{dispatch({type:"today-tasks"})
-          console.log("show-today")
-          }}
+          // showCategory={()=>{dispatch({type:"today-tasks"})
+          showCategory={()=>{
+            navigate("/today")}}
         />
         <TodoCategory
           icon={icon2}
@@ -47,7 +50,8 @@ const CategoryContainer = () => {
           text="Scheduled"
           clas="category"
           amount="5"
-          showCategory={()=>{dispatch({type:"scheduled-tasks"})}}
+          showCategory={()=>{
+            navigate("/scheduled")}}
         />
       </div>
       <div className="display-spacebetween" style={{ marginBottom: "6px" }}>
@@ -57,7 +61,11 @@ const CategoryContainer = () => {
           text="All"
           clas="category"
           amount={amount}
-          showCategory={()=>{dispatch({type:"all-tasks"})}}
+          // showCategory={() => {
+          //   dispatch({ type: "all-tasks" })
+          // }}
+          showCategory={()=>{
+            navigate("/all")}}
         />
         <TodoCategory
           icon={icon4}
@@ -65,7 +73,11 @@ const CategoryContainer = () => {
           text="With flag"
           clas="category"
           amount={flagAmount}
-          showCategory={()=>{dispatch({type:"flagged-tasks"})}}
+          // showCategory={() => {
+          //   dispatch({ type: "flagged-tasks" })
+          // }}
+          showCategory={()=>{
+            navigate("/flagged")}}
         />
       </div>
     </>

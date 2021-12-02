@@ -1,12 +1,11 @@
 import React, { useContext, useState } from "react"
 import { SearchOutlined } from "@ant-design/icons"
 import { Input } from "antd"
-import { TodoContext } from "../../../contexts"
+import { TodoContext } from "../../contexts"
 
-const TodoInput = props => {
+const Search = props => {
   const { dispatch } = useContext(TodoContext)
   const [search, setSearch] = useState()
-  // console.log(search)
   return (
     <div className="display-center" style={{ marginBottom: "12px" }}>
       <Input
@@ -24,4 +23,4 @@ const TodoInput = props => {
   )
 }
 
-export default TodoInput
+export default Search

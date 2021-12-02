@@ -1,16 +1,17 @@
 @import "antd/dist/antd.css";
-.sidebar {
+.app-layout{
+  height: inherit;
+  display: flex;
+}
+.sidebar-wrapper {
   display: flex;
   flex-direction: column;
   width: 284px;
-  height: 100%;
   box-shadow: inset -1px 0px 5px 1px rgb(201, 200, 200);
   background: rgb(211, 210, 210);
   padding: 10px 10px;
 }
-.main-container {
-  height: 100%;
-  width: auto;
+.content-wrapper {
   flex-grow: 1;
   padding: 10px;
 }
@@ -106,6 +107,7 @@
   width: 26px;
 }
 .btn-add-primary {
+  margin-top: auto;
   padding: 0px;
   display: flex;
   max-width: 80px;

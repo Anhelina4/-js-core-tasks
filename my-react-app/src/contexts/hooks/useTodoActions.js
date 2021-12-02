@@ -3,8 +3,8 @@ import TodoContext from "../TodoContext"
 import { v4 as uuidv4 } from "uuid"
 
 const useTodoActions = () => {
-  const id = uuidv4()
-  const idTask = uuidv4()
+  // const id = uuidv4()
+  // const idTask = uuidv4()
   const {
     state,
     dispatch,
@@ -30,12 +30,12 @@ const useTodoActions = () => {
   const showTasks = () => {
     setTaskInput(!taskInput)
   }
-  const handleKeyDownList = e => {
-    if (e.key === "Enter" && list !== "") {
-      dispatch({ type: "add-list", payload: { list, id, arr: [] } })
-      setList("")
-    }
-  }
+  // const handleKeyDownList = e => {
+  //   if (e.key === "Enter" && list !== "") {
+  //     dispatch({ type: "add-list", payload: { list, id, arr: [] } })
+  //     setList("")
+  //   }
+  // }
   const showListsTask = (id) => {
     console.log(id)
     state.lists.filter(item => {
@@ -49,50 +49,42 @@ const useTodoActions = () => {
       }
     })
   }
-  const addTask = (e) => {
-    if (task !== "" && e.key==="Enter") {
-      dispatch({ type: "add-task", payload: { task, idTask } })
-      setTask("")
-    }
+  // const addTask = (e) => {
+  //   if (task !== "" && e.key==="Enter") {
+  //     dispatch({ type: "add-task", payload: { task, idTask } })
+  //     setTask("")
+  //   }
 
-  }
-  const deleteList=(index)=>{
-      dispatch({type:"delete-list", payload:{index:index}})
+  // }
+  // const deleteList=(index)=>{
+  //     dispatch({type:"delete-list", payload:{index:index}})
       
-  }
-  const editListItem=(id)=>{
-    console.log(id)
-    state.lists.map(item=>{
-     if(item.id === id){
-       setEditList(!editList)
-     }
-     if(item.id !== id){
-      setEditList(false)
-     }
-    })
-  }
-  const deleteTask=(index)=>{
-    dispatch({type:"delete-task", payload:{TaskId:index}})
-  }
-  const makeFlagged=(id)=>{
-   state.currentList.children.map(item=>{
-     if (item.taskId === id){
-       setFlagged(!flagged)
-     }
-   })
-  }
+  // }
+  // const editListItem=(id)=>{
+  //   console.log(id)
+  //   state.lists.map(item=>{
+  //    if(item.id === id){
+  //      setEditList(!editList)
+  //    }
+  //    if(item.id !== id){
+  //     setEditList(false)
+  //    }
+  //   })
+  // }
+  // const deleteTask=(index)=>{
+  //   dispatch({type:"delete-task", payload:{TaskId:index}})
+  // }
+  // const makeFlagged=(id)=>{
+  //  state.currentList.children.map(item=>{
+  //    if (item.taskId === id){
+  //      setFlagged(!flagged)
+  //    }
+  //  })
+  // }
   return {
-    setList,
-    list,
-    handleKeyDownList,
     showForm,
     showListsTask,
-    addTask,
     showTasks,
-    editListItem,
-    deleteTask,
-    deleteList,
-    makeFlagged
   }
 }
 

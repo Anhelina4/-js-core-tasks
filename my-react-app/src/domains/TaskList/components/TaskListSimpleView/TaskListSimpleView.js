@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react"
-import { useTodoActions } from "../../../contexts/hooks"
-import { TodoContext } from "../../../contexts"
+import { useTodoActions } from "../../../../contexts/hooks"
+import { TodoContext } from "../../../../contexts"
 import { UnorderedListOutlined, CloseOutlined } from "@ant-design/icons"
 
-const ListItem = props => {
+const TaskListSimpleView = props => {
   const { listName, children, id } = props
   const { showListsTask, deleteList } = useTodoActions()
   const [isEditedList, setIsEditedList] = useState(false)
@@ -48,4 +48,4 @@ const ListItem = props => {
   )
 }
 
-export default ListItem
+export default TaskListSimpleView

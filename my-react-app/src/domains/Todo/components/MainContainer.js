@@ -2,7 +2,7 @@ import React from "react"
 import { useContext } from "react"
 import { FormCreateItem } from "."
 import { TodoContext } from "../../../contexts"
-import TaskContainer from "./TaskContainer"
+import TaskContainer from "../../Task/components/TaskContainer"
 
 const MainContainer = () => {
   const { state } = useContext(TodoContext)

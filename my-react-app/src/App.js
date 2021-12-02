@@ -1,16 +1,13 @@
-import React, { useState, useReducer } from "react"
-import "./App.css"
+import React from "react"
 import "./styles/style.css"
-import { AppLayout } from "./components/AppLayout"
+import { AppLayout } from "./components"
 import { TodoProvider } from "./contexts"
 
 function App() {
   return (
-    <div className="App">
       <TodoProvider>
         <AppLayout />
       </TodoProvider>
-    </div>
   )
 }
 
